@@ -22,7 +22,7 @@ def about_page(request):
 
 def contact_page(request):
     contact_form = ContactForm(request.POST or None)
-    context = {
+    context = { 
                     "title": "Contact Page",
                     "content": "Bem vindo a Contact Page",
                     "form": contact_form	
