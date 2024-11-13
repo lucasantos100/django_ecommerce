@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render, get_object_or_404
 
@@ -21,8 +22,14 @@ class ProductDetailView(DetailView):
     #traz todos os produtos do banco de dados sem filtrar nada 
     queryset = Product.objects.all()
     template_name = "products/detail.html"
+
+    try:
+        instance = Product.objects.get(id = pk)
+    except Product.DoesNotExist:
+        print("Nenhum produto encontrado aqui!")
+        raise Http404("Esse produto não existe!")
     
-    #def get_context_data(self, *args, **kwargs):
-        #context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
-        #print(context)
-        #return context
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
+        print(context)
+        return context
