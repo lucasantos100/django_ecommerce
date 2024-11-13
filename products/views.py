@@ -23,12 +23,6 @@ class ProductDetailView(DetailView):
     queryset = Product.objects.all()
     template_name = "products/detail.html"
 
-    try:
-        instance = Product.objects.get(id = pk)
-    except Product.DoesNotExist:
-        print("Nenhum produto encontrado aqui!")
-        raise Http404("Esse produto não existe!")
-    
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
         print(context)
