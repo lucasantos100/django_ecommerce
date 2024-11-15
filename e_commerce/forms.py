@@ -42,17 +42,6 @@ class LoginForm(forms.Form):
 class RegisterForm(forms.Form):
     username = forms.CharField()
     email = forms.EmailField()
-    telefone = forms.CharField(
-        max_length=15, 
-        required=True,
-        validators=[
-            RegexValidator(
-                regex=r'^\+?1?\d{9,15}$',
-                message="O telefone deve estar no formato correto (ex: +5598998765432)."
-            )
-        ],
-        widget=forms.TextInput(attrs={'placeholder': 'Telefone'})
-    )
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
 
