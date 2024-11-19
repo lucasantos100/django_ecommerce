@@ -6,28 +6,57 @@ class ContactForm(forms.Form):
     full_name = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                    "class": "form-control", 
-                    "placeholder": "Seu nome completo"
-                }
-            )
+                "class": "form-control", 
+                "placeholder": "Seu nome completo"
+            }
         )
-    email     = forms.EmailField(
+    )
+    email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
-                    "class": "form-control", 
-                    "placeholder": "Digite seu email"
-                }
-            )
+                "class": "form-control", 
+                "placeholder": "Digite seu email"
+            }
         )
-    content   = forms.CharField(
+    )
+    phone_number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control", 
+                "placeholder": "Seu número de telefone",
+                "type": "tel"
+            }
+        ),
+        max_length=15,  # Limite de caracteres, pode ser ajustado conforme necessário
+        required=False  # Deixe o campo opcional ou altere para True, se necessário
+    )
+    date = forms.DateField(
+        widget=forms.DateInput(
+            attrs={
+                "class": "form-control", 
+                "placeholder": "Escolha a data",
+                "type": "date"
+            }
+        )
+    )
+    time = forms.TimeField(
+        widget=forms.TimeInput(
+            attrs={
+                "class": "form-control", 
+                "placeholder": "Escolha o horário",
+                "type": "time"
+            }
+        )
+    )
+    content = forms.CharField(
         widget=forms.Textarea(
             attrs={
-                    "class": "form-control", 
-                    "placeholder": "Digite sua mensagem"
-                }
-            )
+                "class": "form-control", 
+                "placeholder": "Digite sua mensagem"
+            }
         )
-    
+    )
+
     def clean_email(self):
         email = self.cleaned_data.get("email")
         if not "gmail.com" in email:
