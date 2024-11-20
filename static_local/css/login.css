@@ -254,4 +254,17 @@ form button:disabled {
  .toggle-password:focus {
      outline: none; /* Remover o contorno ao focar no botão */
  }
- 
+
+.bemvindo {
+     position: absolute; /* Posiciona a div de forma absoluta */
+     top: 10%; /* Distância do topo da página */
+     left: 50%; /* Centraliza horizontalmente */
+     transform: translateX(-50%); /* Ajusta para centralização perfeita */
+     text-align: center; /* Centraliza o texto dentro da div */
+     color: #fff; /* Cor do texto */
+     font-size: 1.5rem; /* Tamanho do texto */
+     font-weight: bold; /* Negrito para destaque */
+     padding: 10px 20px; /* Espaçamento interno */
+     border-radius: 8px; /* Borda arredondada */
+    
+ }

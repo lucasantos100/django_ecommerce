@@ -19,7 +19,7 @@ class ContactForm(forms.Form):
             }
         )
     )
-    phone_number = forms.CharField(
+    numero = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "class": "form-control", 

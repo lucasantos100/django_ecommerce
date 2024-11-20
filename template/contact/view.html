@@ -21,19 +21,20 @@
         <title>Agendamento - KGB SA</title>
     </head>
     <body>
-        <div class='text-center'>
-            <h1>{{ title }}</h1>
-        </div>
+
 
     <section class="agendamento-section">    
    <div class='container'>
             <div class='row'>
                 <div class='col'>
+                            <div class='text-center'>
+                                <h1>{{ title }}</h1>
+                            </div>
                     <p>{{ content }}</p>
                     <div id='form' >
                         <form method='POST'> {% csrf_token %}
                             {{ form }}
-                            <button type='submit' class='btn btn-default'>Enviar</button>
+                            <button type='submit' class='btn btn-success'>Enviar</button>
                         </form>
                     </div>
                 </div>
