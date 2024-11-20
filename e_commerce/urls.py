@@ -21,20 +21,17 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 from products.views import (ProductListView,
                             ProductDetailView,
                             ProductFeaturedListView,
                             ProductFeaturedDetailView)
-
 from .views import home_page, about_page, contact_page, login_page, register_page
-=======
+
 from .views import home_page, about_page, contact_page, login_page, logout_page, register_page
->>>>>>> user_logout
-=======
+
+
 from .views import home_page, about_page, contact_page, login_page, logout_page, register_page, clear_logout_message
->>>>>>> static_files
+
 
 urlpatterns = [
 	path('', home_page),
