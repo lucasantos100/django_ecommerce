@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -24,7 +24,7 @@ def contact_page(request):
     contact_form = ContactForm(request.POST or None)
     context = {
                     "title": "Agendamento - KGB SA",
-                    "content": "Bem vindo a Página de Agendamento",
+                    "content": "Bem vindo a Formulário de Agendamento",
                     "form": contact_form	
               }
     if contact_form.is_valid():
@@ -55,6 +55,11 @@ def login_page(request):
             #Retorna uma mensagem de erro de 'invalid login'.
             print("Login inválido")
     return render(request, "auth/login.html", context)
+
+
+def logout_page(request):
+    logout(request)
+    return render(request, "auth/logout.html", {})
 
 User = get_user_model()
 

@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Montserrat+Alternates:wght@100;400&family=Montserrat:wght@200;300;500;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@200&display=swap');
+
+* {
+     font-family: 'Open Sans', sans-serif;
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body {
+     width: 100%; /*145 */
+     height: 100vh;
+     font-size: 1rem;
+     color: #fff;
+     background-color: #110d20;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+main {
+     width: 100%;
+     max-width: 1400px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 20px;
+     padding: 1rem; /* Adicionado padding para evitar que o conteúdo encoste nas bordas */
+}
+
+.main-container {
+     width: 100%;
+     max-width: 600px;
+     background-color: #24244a;
+     padding: 2rem;
+     border-radius: 15px;
+     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+
+h1 {
+     text-align: center;
+     color: #52d27b;
+     font-size: 2rem;
+     margin-bottom: 1.5rem;
+}
+.cadastro {
+     color: #52d27b;
+     font-size: 2rem;
+     margin-bottom: 1.5rem;
+     display:block;
+     margin:0 auto;
+}
+
+
+
+/* CARD AREA */
+.card {
+     background-color: #292948;
+     border-radius: 15px;
+     padding: 2rem;
+     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.card h2 {
+     color: #52d27b;
+     text-align: center;
+     font-size: 2rem;
+     font-weight: 600;
+     margin-bottom: 1.5rem;
+}
+
+form {
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+     align-items: center;
+}
+
+.input-group label {
+     color: #c7c7c7;
+     font-size: 0.9rem;
+     font-weight: 500;
+     margin-bottom: 0.3rem;
+}
+
+.input-group input {
+     padding: 0.7rem;
+     margin-bottom: 1rem;
+     font-size: 1rem;
+     color: #c9c9c9;
+     background-color: #1e1d38;
+     border: 1px solid #44444f;
+     border-radius: 5px;
+     outline: none;
+     width: 100%;
+     max-width: 350px;
+}
+
+.input-group input:focus {
+     border-color: #52d27b;
+}
+
+.submit-btn-form {
+     display: flex;
+     justify-content: center;
+     margin-top: 1.5rem;
+     width: 100%;
+}
+
+.submit-btn-form button {
+     width: 100%;
+     max-width: 350px;
+     font-size: 1.2rem;
+     color: #fff;
+     background-color: #4caf50;
+     font-weight: 600;
+     padding: 0.8rem 2rem;
+     border-radius: 5px;
+     border: none;
+     cursor: pointer;
+     transition: background-color 0.3s;
+}
+
+.submit-btn-form button:hover {
+     background-color: #45a249;
+}
+
+form button:disabled {
+     cursor: not-allowed;
+     background-color: #666;
+}
+
+.form-links {
+     text-align: center;
+     margin-top: 1rem;
+}
+
+.form-links a {
+     color: #8888a8;
+     font-size: 0.9rem;
+     text-decoration: none;
+     transition: color 0.3s;
+}
+
+.form-links a:hover {
+     color: #52d27b;
+}
+
+.footer-card {
+     text-align: center;
+     margin-top: 2rem;
+     font-size: 0.8rem;
+}
+
+.footer-card a {
+     color: #4caf50;
+     text-decoration: underline;
+}
+
+/* MEDIA QUERY */
+
+@media (max-width: 1090px) {
+     body {
+          padding: 1.5rem 0;
+          min-height: 615px;
+     }
+     .main-container {
+          flex-direction: column;
+     }
+     .left-content {
+          margin-bottom: 1.5rem;
+     }
+     .left-content figure {
+          display: none;
+     }
+     .right-content {
+          width: 100%;
+     }
+     .card {
+          width: 95%;
+          margin: 0 auto;
+     }
+}
+
+@media (max-width: 680px) {
+     .left-content h1 {
+          font-size: 1.7rem;
+     }
+     .card h3 {
+          font-size: 1.8rem;
+     }
+}
+
+@media (max-width: 550px) {
+     .right-content {
+          padding: 0;
+     }
+     .card {
+          width: 90%;
+     }
+}
+
+@media (max-width: 475px) {
+     body {
+          padding: 0;
+     }
+     .left-content h1 {
+          font-size: 1.3rem;
+     }
+     .title h2 {
+          font-size: 1.7rem;
+     }
+     form {
+          padding: 0;
+     }
+     .submit-btn-form button {
+          font-size: 1rem;
+     }
+}
+
+
+/* ESTILO DO CONTAINER DA SENHA */
+.password-container {
+     display: flex;
+     align-items: center;
+     position: relative;
+ }
+ 
+ .password-container input {
+     width: 100%;
+     padding-right: 2rem; /* Espaço para o ícone de olho */
+ }
+ 
+ .toggle-password {
+     background: none;
+     border: none;
+     cursor: pointer;
+     position: absolute;
+     right: 1.7rem;
+     top: 35%;
+     transform: translateY(-50%);
+     font-size: 1.2rem;
+     color: #bb8dff; /* Cor do ícone */
+ }
+ 
+ .toggle-password:focus {
+     outline: none; /* Remover o contorno ao focar no botão */
+ }
+
+.bemvindo {
+     position: absolute; /* Posiciona a div de forma absoluta */
+     top: 10%; /* Distância do topo da página */
+     left: 50%; /* Centraliza horizontalmente */
+     transform: translateX(-50%); /* Ajusta para centralização perfeita */
+     text-align: center; /* Centraliza o texto dentro da div */
+     color: #fff; /* Cor do texto */
+     font-size: 1.5rem; /* Tamanho do texto */
+     font-weight: bold; /* Negrito para destaque */
+     padding: 10px 20px; /* Espaçamento interno */
+     border-radius: 8px; /* Borda arredondada */
+    
+ }
