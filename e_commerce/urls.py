@@ -22,6 +22,7 @@ from django.contrib import admin
 from django.urls import path
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 from products.views import (ProductListView,
                             ProductDetailView,
                             ProductFeaturedListView,
@@ -31,6 +32,9 @@ from .views import home_page, about_page, contact_page, login_page, register_pag
 =======
 from .views import home_page, about_page, contact_page, login_page, logout_page, register_page
 >>>>>>> user_logout
+=======
+from .views import home_page, about_page, contact_page, login_page, logout_page, register_page, clear_logout_message
+>>>>>>> static_files
 
 urlpatterns = [
 	path('', home_page),
@@ -38,6 +42,7 @@ urlpatterns = [
 	path('contact/', contact_page),
     path('login/', login_page),
     path('logout/', logout_page),
+    path('clear-logout-message/', clear_logout_message, name='clear_logout_message'),
     path('register/', register_page),
     path('featured/', ProductFeaturedListView.as_view()),
     path('featured/<int:pk>/', ProductFeaturedDetailView.as_view()),

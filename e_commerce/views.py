@@ -1,13 +1,14 @@
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 
 from .forms import ContactForm, LoginForm, RegisterForm
 
 def home_page(request):
     context = {
-                    "title": "Home Page",
-                    "content": "Bem vindo a Home Page",
+                    "title": "KGB SA",
+                    "content": "Atendimento original e personalizado voltado para modalidade de licitações.",
               }
     if request.user.is_authenticated:
         context["premium_content"] = "Você é um usuário Premium"
@@ -59,7 +60,13 @@ def login_page(request):
 
 def logout_page(request):
     logout(request)
-    return render(request, "auth/logout.html", {})
+    request.session['logout_message'] = "Você foi deslogado com sucesso!"
+    return redirect("/")
+
+def clear_logout_message(request):
+    request.session.pop('logout_message', None)
+    return JsonResponse({'status': 'ok'})
+
 
 User = get_user_model()
 
