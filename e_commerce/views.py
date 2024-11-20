@@ -1,6 +1,7 @@
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 
 from .forms import ContactForm, LoginForm, RegisterForm
 
@@ -55,6 +56,17 @@ def login_page(request):
             #Retorna uma mensagem de erro de 'invalid login'.
             print("Login inválido")
     return render(request, "auth/login.html", context)
+
+
+def logout_page(request):
+    logout(request)
+    request.session['logout_message'] = "Você foi deslogado com sucesso!"
+    return redirect("/")
+
+def clear_logout_message(request):
+    request.session.pop('logout_message', None)
+    return JsonResponse({'status': 'ok'})
+
 
 User = get_user_model()
 def register_page(request):

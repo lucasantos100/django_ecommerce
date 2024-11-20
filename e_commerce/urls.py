@@ -21,13 +21,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from .views import home_page, about_page, contact_page, login_page, register_page
+from .views import home_page, about_page, contact_page, login_page, logout_page, register_page, clear_logout_message
 
 urlpatterns = [
 	path('', home_page),
 	path('about/', about_page),
 	path('contact/', contact_page),
     path('login/', login_page),
+    path('logout/', logout_page),
+    path('clear-logout-message/', clear_logout_message, name='clear_logout_message'),
     path('register/', register_page),
 	path('admin/', admin.site.urls),
 ]
