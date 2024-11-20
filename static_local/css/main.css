@@ -1,3 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para o tema escuro */
 body {
-    color: #000000;
+    background-color: #0a1d34;  /* Azul escuro */
+    color: #f5f5f5;  /* Texto claro */
+    line-height: 1.6;
+}
+.navbar {
+    background-color: #1c3d6e;  /* Azul escuro */
+    padding: 5px 20px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
 }
