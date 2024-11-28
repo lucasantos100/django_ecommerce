@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="pt-br">
     <head>
+        <title>KGB SOLUTIONS - Página Inicial</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,12 +12,21 @@
         <link rel='stylesheet' href='{% static "css/main.css" %}'>
     </head>
     <body>
-        <title>KGB - Solutions</title>
+        <div class="menu-acessibilidade" id="menu-acessibilidade">
+            <button class="acessibilidade-btn" id="acessibilidade-btn" onclick="toggleAcessibilidadeMenu()">
+                <img src="imgs/acessibilidade.png" alt="Acessibilidade" />
+            </button>
+            <div class="acessibilidade-options">
+                <button onclick="aumentarFonte()">Aumentar Fonte</button>
+                <button onclick="diminuirFonte()">Diminuir Fonte</button>
+                <button onclick="toggleContraste()">Alto Contraste</button>
+                <button onclick="resetarAlteracoes()">Resetar</button> <!-- Novo botão para resetar -->
+            </div>
+        </div> 
         <!--navbar-->
         <nav class="navbar">
             <a href=" ">Início</a>
             {% if request.user.is_authenticated %}
-            <a href='logout'>Logout</a>
             {% endif %}
             {% if not request.user.is_authenticated %}
             <a href='login'>Login</a>
@@ -142,6 +152,128 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script>
+                // darkmode.js
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // Verifica se o modo escuro está ativado no localStorage
+                        const modoEscuro = localStorage.getItem('modoEscuro') === 'true';
+
+                        // Se estiver no modo escuro, aplica a classe dark-mode
+                        if (modoEscuro) {
+                            document.body.classList.add('dark-mode');
+                        }
+
+                        // Evento de clique no botão de alternar modo
+                        const modoClaroBtn = document.getElementById('modo-claro');
+                        if (modoClaroBtn) {
+                            modoClaroBtn.addEventListener('click', function () {
+                                document.body.classList.toggle('dark-mode');
+                                
+                                // Armazena a preferência do usuário no localStorage
+                                const isDarkMode = document.body.classList.contains('dark-mode');
+                                localStorage.setItem('modoEscuro', isDarkMode);
+                            });
+                        }
+                    });
+
+                    function toggleSobre() {
+                        var conteudo = document.querySelector('.sobre-conteudo');
+                        conteudo.style.display = conteudo.style.display === 'block' ? 'none' : 'block';
+                    }
+
+                        // Função para verificar se o elemento está visível na tela
+                        function isElementInViewport(el) {
+                            const rect = el.getBoundingClientRect();
+                            return (
+                                rect.top >= 0 &&
+                                rect.left >= 0 &&
+                                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                            );
+                        }
+
+                        // Função que adiciona a classe "visible" quando o elemento entra na tela
+                        function handleScroll() {
+                            const elements = document.querySelectorAll('.animate-on-scroll');
+                            elements.forEach(el => {
+                                if (isElementInViewport(el)) {
+                                    el.classList.add('visible');
+                                }
+                            });
+                        }
+
+                        // Adiciona o evento de scroll
+                        window.addEventListener('scroll', handleScroll);
+
+                    // Controla o menu de acessibilidade
+                    function toggleAcessibilidadeMenu() {
+                        const menu = document.querySelector('.acessibilidade-options');
+                        menu.classList.toggle('show');
+                    }
+
+                    // Aumentar fonte
+                    let fontSize = 16; // Tamanho base
+                    function aumentarFonte() {
+                        fontSize += 2;
+                        document.body.style.fontSize = `${fontSize}px`;
+                    }
+
+                    // Diminuir fonte
+                    function diminuirFonte() {
+                        fontSize = Math.max(12, fontSize - 2); // Limite mínimo de 12px
+                        document.body.style.fontSize = `${fontSize}px`;
+                    }
+
+                    // Ativar/desativar alto contraste
+                    function toggleContraste() {
+                        document.body.classList.toggle('alto-contraste');
+                    }
+
+                    // Resetar as alterações
+                    function resetarAlteracoes() {
+                        // Resetar o tamanho da fonte para o valor padrão
+                        fontSize = 16; // Restabelece o tamanho original
+                        document.body.style.fontSize = `${fontSize}px`;
+
+                        // Remover a classe de alto contraste, caso esteja ativada
+                        if (document.body.classList.contains('alto-contraste')) {
+                            document.body.classList.remove('alto-contraste');
+                        }
+                    }
+
+
+
+                    // Tornar o botão arrastável
+                    const menu = document.getElementById('menu-acessibilidade');
+                    const button = document.getElementById('acessibilidade-btn');
+
+                    let isDragging = false;
+                    let offsetX = 0;
+                    let offsetY = 0;
+
+                    button.addEventListener('mousedown', (e) => {
+                        isDragging = true;
+                        offsetX = e.clientX - menu.getBoundingClientRect().left;
+                        offsetY = e.clientY - menu.getBoundingClientRect().top;
+                        menu.style.cursor = 'grabbing';
+                    });
+
+                    document.addEventListener('mousemove', (e) => {
+                        if (isDragging) {
+                            const x = e.clientX - offsetX;
+                            const y = e.clientY - offsetY;
+                            menu.style.left = `${x}px`;
+                            menu.style.top = `${y}px`;
+                            menu.style.right = 'auto'; // Remove a fixação no lado direito
+                            menu.style.bottom = 'auto'; // Garante que só usa top e left
+                        }
+                    });
+
+                    document.addEventListener('mouseup', () => {
+                        isDragging = false;
+                        menu.style.cursor = 'grab';
+                    });
+
+
             const logoutMessage = "{{ request.session.logout_message|default:'' }}";
             if (logoutMessage) {
                 alert(logoutMessage);  // Exibe o alerta
