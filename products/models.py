@@ -39,3 +39,5 @@ class Product(models.Model): #product_category
 
     def __str__(self):
         return self.title
+    
+    
