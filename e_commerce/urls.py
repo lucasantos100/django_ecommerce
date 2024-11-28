@@ -32,6 +32,8 @@ from .views import home_page, about_page, contact_page, login_page, logout_page,
 
 from .views import home_page, about_page, contact_page, login_page, logout_page, register_page, clear_logout_message
 
+from . import views
+
 
 urlpatterns = [
 	path('', home_page),
@@ -39,6 +41,7 @@ urlpatterns = [
 	path('contact/', contact_page),
     path('login/', login_page),
     path('logout/', logout_page),
+    path('mudarsenha/', views.mudar_senha, name='mudar_senha'),
     path('clear-logout-message/', clear_logout_message, name='clear_logout_message'),
     path('register/', register_page),
     path('featured/', ProductFeaturedListView.as_view()),
@@ -46,6 +49,9 @@ urlpatterns = [
     path('products/', ProductListView.as_view()),
     path('products/<int:pk>', ProductDetailView.as_view()),
 	path('admin/', admin.site.urls),
+    path('formularios/', views.mostrar_formulario, name='mostrar_formulario'),
+    path('sucesso/', views.formulario_sucesso, name='formulario_sucesso'),
+    
 ]
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

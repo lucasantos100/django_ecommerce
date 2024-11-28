@@ -1,8 +1,10 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.core.validators import RegexValidator
+from formulario.models import Formulario
 
 User = get_user_model()
+
 class ContactForm(forms.Form):
     full_name = forms.CharField(
         widget=forms.TextInput(
@@ -95,3 +97,73 @@ class RegisterForm(forms.Form):
         if password != password2:
             raise forms.ValidationError("As senhas informadas devem ser iguais!")
         return data
+
+class FormularioForm(forms.ModelForm):
+    class Meta:
+        model = Formulario
+        fields = ['nome', 'email', 'telefone', 'data', 'horario', 'mensagem']
+    
+    # Personalizando o campo nome
+    nome = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Seu nome completo"
+            }
+        )
+    )
+
+    # Personalizando o campo email
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Digite seu email"
+            }
+        )
+    )
+
+    # Personalizando o campo telefone
+    telefone = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Seu número de telefone",
+                "type": "tel"
+            }
+        ),
+        max_length=15,  # Limite de caracteres, pode ser ajustado conforme necessário
+        required=False  # Deixe o campo opcional ou altere para True, se necessário
+    )
+
+    # Personalizando o campo data
+    data = forms.DateField(
+        widget=forms.DateInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Escolha a data",
+                "type": "date"
+            }
+        )
+    )
+
+    # Personalizando o campo horario
+    horario = forms.TimeField(
+        widget=forms.TimeInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Escolha o horário",
+                "type": "time"
+            }
+        )
+    )
+
+    # Personalizando o campo mensagem
+    mensagem = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Digite sua mensagem"
+            }
+        )
+    )

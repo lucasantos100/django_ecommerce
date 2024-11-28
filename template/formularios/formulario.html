@@ -1,3 +1,17 @@
+<!-- <html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário</title>
+</head>
+<body>
+    <h1>Formulário de Contato</h1>
+    <form method="POST">
+        {% csrf_token %}  Token de segurança para proteger contra CSRF -->
+        <!-- {{ form.as_p }} Renderiza os campos do formulário
+        <button type="submit">Enviar</button>
+    </form>
+</body> -->
+
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -31,8 +45,9 @@
                             </div>
                     <p>{{ content }}</p>
                     <div id='form' >
-                        <form method='POST'> {% csrf_token %}
-                            {{ form }}
+                        <form method='POST'> 
+                            {% csrf_token %}
+                            {{ form.as_p }}
                             <button type='submit' class='btn btn-success'>Enviar</button>
                         </form>
                     </div>

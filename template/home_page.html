@@ -21,14 +21,16 @@
             {% if not request.user.is_authenticated %}
             <a href='login'>Login</a>
             {% endif %}
+            {% if request.user.is_authenticated %}
             <div class="menu">
                 <a href="#">Minha Conta</a>
                 <div class="submenu">
                     <a href="perfil/perfil.html">Perfil</a>
-                    <a href="#" id="modo-claro">Alternar modo</a> 
-                    <a href="index.html" class="logout">Sair da Conta</a>
+                    <a href="logout" class="logout">Sair da Conta</a>
+                    <a href='mudarsenha'>Mudar Senha</a>
                 </div>
             </div>
+            {% endif %}
         </nav>
 
         <div class='text-center'>

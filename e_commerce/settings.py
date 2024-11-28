@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #app do lucas django
-    'products'
+    'products',
+    'formulario'
 ]
 
 MIDDLEWARE = [

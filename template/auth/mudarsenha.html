@@ -1,0 +1,20 @@
+<div class='text-center'>
+    <h2>Mude Sua Senha!</h2>
+</div>
+{% block content %}
+  <h2>Alterar Senha</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Exibe o formulário -->
+    <button type="submit">Alterar Senha</button>
+  </form>
+
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

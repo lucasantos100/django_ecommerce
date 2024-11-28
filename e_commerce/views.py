@@ -1,9 +1,17 @@
-from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.contrib.auth import authenticate, login, logout, get_user_model, update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .forms import ContactForm, LoginForm, RegisterForm
+
+from formulario.models import Formulario
+
+from .forms import FormularioForm
+
 
 def home_page(request):
     context = {
@@ -83,3 +91,42 @@ def register_page(request):
         new_user = User.objects.create_user(username, email, password)
         print(new_user)
     return render(request, "auth/register.html", context)
+
+def lista_formularios(request):
+    formularios = Formulario.objects.all()  # Recupera todos os formulários
+    return render(request, 'formularios/lista.html', {'formularios': formularios})
+
+def mostrar_formulario(request):
+    if request.method == 'POST':  # Verificando se o formulário foi enviado
+        form = FormularioForm(request.POST)  # Criando um formulário com os dados recebidos
+        if form.is_valid():  # Verificando se o formulário é válido
+            form.save()  # Salvando os dados no banco
+            return redirect('formulario_sucesso')  # Redirecionando para uma página de sucesso
+    else:
+        form = FormularioForm()  # Criando um formulário vazio para exibir
+    return render(request, 'formularios/formulario.html', {'form': form})
+
+# View de sucesso (após o formulário ser enviado com sucesso)
+def formulario_sucesso(request):
+    return HttpResponse('Formulário enviado com sucesso!')
+
+@login_required
+def mudar_senha(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            # Atualiza a senha do usuário
+            form.save()
+            # Atualiza a sessão para que o usuário não precise fazer login novamente
+            update_session_auth_hash(request, form.user)
+            messages.success(request, 'Sua senha foi alterada com sucesso!')
+            return redirect('/login')  # Redireciona para a página de login ou qualquer página desejada
+        else:
+            messages.error(request, 'Erro ao alterar a senha. Por favor, tente novamente.')
+    else:
+        # Exibe o formulário para mudança de senha
+        form = PasswordChangeForm(user=request.user)
+
+    return render(request, 'auth/mudarsenha.html', {'form': form})
+#form if senha == senha
+#          senha = nova 
