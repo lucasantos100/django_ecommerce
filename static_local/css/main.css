@@ -120,16 +120,6 @@ a {
 
 
 /* Cabeçalho com imagem de fundo */
-.header {
-    background: url('../imgs/banner2.png') no-repeat center center/cover;
-    color: #fff;
-    padding: 100px 20px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 1px;
-    height: 400px;
-}
-
 
 .header h1 {
     position: relative;
@@ -475,12 +465,12 @@ a {
 }
 
 .testimonial {
-    background-color: #243c6ed5;
+    background-color: #101220;
     color: #000000;
     padding: 25px;
     width: 280px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.356);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;

@@ -32,8 +32,8 @@ def about_page(request):
 def contact_page(request):
     contact_form = ContactForm(request.POST or None)
     context = {
-                    "title": "Agendamento - KGB SA",
-                    "content": "Bem vindo a Formulário de Agendamento",
+                    "title": "Contato - KGB Solutions",
+                    "content": "Bem-Vindo à Página de Contato",
                     "form": contact_form	
               }
     if contact_form.is_valid():

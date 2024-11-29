@@ -5,8 +5,9 @@ class Formulario(models.Model):
     nome = models.CharField(max_length=100)
     email = models.EmailField()
     telefone = models.CharField(max_length=15, null=True)  
-    data = models.DateField(default=timezone.now)  
-    horario = models.TimeField(default="08:00:00")
+    data = models.DateField()  
+    horario = models.TimeField()
+    servicos = models.JSONField(default=list) 
     mensagem = models.TextField()
 
     def __str__(self):

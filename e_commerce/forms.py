@@ -52,18 +52,6 @@ class ContactForm(forms.Form):
             }
         )
     )
-    servicos = forms.MultipleChoiceField(
-        choices=[
-            ("Apoio Administrativo e Gestão Empresarial", "Apoio Administrativo e Gestão Empresarial"),
-            ("Terceirização Financeira e Gestão de Recursos", "Terceirização Financeira e Gestão de Recursos"),
-            ("Planejamento e Organização Administrativa", "Planejamento e Organização Administrativa"),
-            ("Consultoria em Licitações Públicas e Privadas", "Consultoria em Licitações Públicas e Privadas"),
-            ("Desenvolvimento de Sistemas", "Desenvolvimento de Sistemas")
-        ],
-        widget=forms.CheckboxSelectMultiple(
-            attrs={"class": "form-check"}
-        )
-    )
     content = forms.CharField(
         widget=forms.Textarea(
             attrs={
@@ -117,7 +105,7 @@ class RegisterForm(forms.Form):
 class FormularioForm(forms.ModelForm):
     class Meta:
         model = Formulario
-        fields = ['nome', 'email', 'telefone', 'data', 'horario', 'mensagem']
+        fields = ['nome', 'email', 'telefone', 'data', 'horario', 'servicos', 'mensagem']
     
     # Personalizando o campo nome
     nome = forms.CharField(
@@ -173,7 +161,18 @@ class FormularioForm(forms.ModelForm):
             }
         )
     )
-
+    servicos = forms.MultipleChoiceField(
+        choices=[
+            ("Apoio Administrativo e Gestão Empresarial", "Apoio Administrativo e Gestão Empresarial"),
+            ("Terceirização Financeira e Gestão de Recursos", "Terceirização Financeira e Gestão de Recursos"),
+            ("Planejamento e Organização Administrativa", "Planejamento e Organização Administrativa"),
+            ("Consultoria em Licitações Públicas e Privadas", "Consultoria em Licitações Públicas e Privadas"),
+            ("Desenvolvimento de Sistemas", "Desenvolvimento de Sistemas")
+        ],
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "form-check"}
+        )
+    )
     # Personalizando o campo mensagem
     mensagem = forms.CharField(
         widget=forms.Textarea(

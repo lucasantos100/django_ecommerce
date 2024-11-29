@@ -7,6 +7,14 @@
     box-sizing: border-box;
 }
 
+.h1{
+    font-size: 2.5rem
+}
+.p2{
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
 body {
     background-color: #110d20;
 }
