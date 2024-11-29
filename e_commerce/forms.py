@@ -5,11 +5,12 @@ from formulario.models import Formulario
 
 User = get_user_model()
 
+#formulario de contato
 class ContactForm(forms.Form):
     full_name = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                "class": "form-control", 
+                "class": "form-control",
                 "placeholder": "Seu nome completo"
             }
         )
@@ -17,7 +18,7 @@ class ContactForm(forms.Form):
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
-                "class": "form-control", 
+                "class": "form-control",
                 "placeholder": "Digite seu email"
             }
         )
@@ -25,7 +26,7 @@ class ContactForm(forms.Form):
     numero = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                "class": "form-control", 
+                "class": "form-control",
                 "placeholder": "Seu número de telefone",
                 "type": "tel"
             }
@@ -36,7 +37,7 @@ class ContactForm(forms.Form):
     date = forms.DateField(
         widget=forms.DateInput(
             attrs={
-                "class": "form-control", 
+                "class": "form-control",
                 "placeholder": "Escolha a data",
                 "type": "date"
             }
@@ -45,16 +46,28 @@ class ContactForm(forms.Form):
     time = forms.TimeField(
         widget=forms.TimeInput(
             attrs={
-                "class": "form-control", 
+                "class": "form-control",
                 "placeholder": "Escolha o horário",
                 "type": "time"
             }
         )
     )
+    servicos = forms.MultipleChoiceField(
+        choices=[
+            ("Apoio Administrativo e Gestão Empresarial", "Apoio Administrativo e Gestão Empresarial"),
+            ("Terceirização Financeira e Gestão de Recursos", "Terceirização Financeira e Gestão de Recursos"),
+            ("Planejamento e Organização Administrativa", "Planejamento e Organização Administrativa"),
+            ("Consultoria em Licitações Públicas e Privadas", "Consultoria em Licitações Públicas e Privadas"),
+            ("Desenvolvimento de Sistemas", "Desenvolvimento de Sistemas")
+        ],
+        widget=forms.CheckboxSelectMultiple(
+            attrs={"class": "form-check"}
+        )
+    )
     content = forms.CharField(
         widget=forms.Textarea(
             attrs={
-                "class": "form-control", 
+                "class": "form-control",
                 "placeholder": "Digite sua mensagem"
             }
         )
@@ -66,10 +79,12 @@ class ContactForm(forms.Form):
             raise forms.ValidationError("O Email deve ser do gmail.com")
         return email
 
+#formulario de login
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
+#formulario de registro
 class RegisterForm(forms.Form):
     username = forms.CharField()
     email = forms.EmailField()
@@ -98,6 +113,7 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError("As senhas informadas devem ser iguais!")
         return data
 
+#formulario de formulario
 class FormularioForm(forms.ModelForm):
     class Meta:
         model = Formulario

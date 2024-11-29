@@ -110,6 +110,7 @@ def mostrar_formulario(request):
 def formulario_sucesso(request):
     return HttpResponse('Formulário enviado com sucesso!')
 
+
 @login_required
 def mudar_senha(request):
     if request.method == 'POST':
@@ -128,5 +129,3 @@ def mudar_senha(request):
         form = PasswordChangeForm(user=request.user)
 
     return render(request, 'auth/mudarsenha.html', {'form': form})
-#form if senha == senha
-#          senha = nova 

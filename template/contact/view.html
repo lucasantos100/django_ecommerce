@@ -5,10 +5,10 @@
         <header>
             <nav class="navbar">
                 <a href="../">Início</a>
-                <a href="" ></a>
-                <a href="" ></a>
-                <a href="" ></a>
-                <a href="" ></a>
+                <a href="">Serviços</a>
+                <a href="">Contato</a>
+                <a href="">Sobre</a>
+                <a href="">Ajuda</a>
             </nav>
         </header>
         <!-- Required meta tags -->
@@ -23,15 +23,16 @@
     <body>
 
     <section class="agendamento-section">    
-   <div class='container'>
+        <div class='container'>
             <div class='row'>
                 <div class='col'>
-                            <div class='text-center'>
-                                <h1>{{ title }}</h1>
-                            </div>
+                    <div class='text-center'>
+                        <h1>{{ title }}</h1>
+                    </div>
                     <p>{{ content }}</p>
-                    <div id='form' >
-                        <form method='POST'> {% csrf_token %}
+                    <div id='form'>
+                        <form method='POST'> 
+                            {% csrf_token %}
                             {{ form }}
                             <button type='submit' class='btn btn-success'>Enviar</button>
                         </form>
@@ -40,6 +41,7 @@
             </div>
         </div>
     </section>
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
