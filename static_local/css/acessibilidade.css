@@ -1,0 +1,120 @@
+/* Menu de acessibilidade */
+.menu-acessibilidade, .acessibilidade-btn, .acessibilidade-options button {
+    font-size: 16px !important; /* Tamanho fixo da fonte para o menu de acessibilidade */
+}
+
+.menu-acessibilidade {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1000;
+    cursor: grab; /* Mostra que o botão pode ser arrastado */
+}
+
+.acessibilidade-btn {
+    background-color: #007BFF;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: grab;
+}
+
+.acessibilidade-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Opções de acessibilidade */
+.acessibilidade-options {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 150px;
+}
+
+.acessibilidade-options button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.acessibilidade-options button:hover {
+    background-color: #0056b3;
+}
+
+/* Mostrar menu de acessibilidade */
+.acessibilidade-options.show {
+    display: block;
+}
+
+/* Estilo de alto contraste aprimorado */
+body.alto-contraste {
+    background-color: #000; /* Fundo preto */
+    color: #FFD700; /* Texto dourado */
+}
+
+body.alto-contraste a {
+    color: #1E90FF; /* Azul claro para links */
+    text-decoration: underline;
+}
+
+body.alto-contraste a:hover {
+    color: #00FFFF; /* Ciano ao passar o mouse */
+}
+
+/* Bordas e realce para elementos */
+body.alto-contraste button,
+body.alto-contraste input,
+body.alto-contraste textarea {
+    background-color: #333; /* Fundo cinza-escuro */
+    color: #FFD700; /* Texto dourado */
+    border: 2px solid #FFD700; /* Bordas douradas */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+body.alto-contraste button:hover {
+    background-color: #444; /* Realce ao passar o mouse */
+}
+
+/* Tabelas e divisores */
+body.alto-contraste table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #FFD700;
+}
+
+body.alto-contraste th,
+body.alto-contraste td {
+    border: 1px solid #FFD700;
+    padding: 10px;
+    text-align: left;
+}
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste h4 {
+    color: #FFD700;
+    padding-bottom: 5px;
+}
+
+body.alto-contraste .card {
+    background-color: #222; /* Fundo escuro */
+    border: 1px solid #FFD700;
+    color: #FFD700;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+

@@ -3,18 +3,17 @@
 <html lang="pt-br">
     <head>
         <title>KGB SOLUTIONS - Página Inicial</title>
+        <link rel='stylesheet' href='{% static "css/acessibilidade.css" %}'>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="{% static 'img/icone.png' %}" type="image/png">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel='stylesheet' href='{% static "css/main.css" %}'>
     </head>
     <body>
         <div class="menu-acessibilidade" id="menu-acessibilidade">
             <button class="acessibilidade-btn" id="acessibilidade-btn" onclick="toggleAcessibilidadeMenu()">
-                <img src="imgs/acessibilidade.png" alt="Acessibilidade" />
+                <img src="{% static 'img/acessibilidade.png' %}" alt="Acessibilidade" />
             </button>
             <div class="acessibilidade-options">
                 <button onclick="aumentarFonte()">Aumentar Fonte</button>
@@ -23,7 +22,8 @@
                 <button onclick="resetarAlteracoes()">Resetar</button> <!-- Novo botão para resetar -->
             </div>
         </div> 
-        <!--navbar-->
+    <!-- <header class="header">
+        
         <nav class="navbar">
             <a href=" ">Início</a>
             {% if request.user.is_authenticated %}
@@ -42,242 +42,201 @@
             </div>
             {% endif %}
         </nav>
+    </header> -->
+    <header class="header">
+        
+        <nav class="navbar">
+            <a href="perfil/perfil.html">Perfil</a>
+            <div class="menu">
+                <div class="submenu">
+                    <a href="index.html" class="logout">Sair da Conta</a>
+                </div>
+            </div>
+        </nav>
+        <!--<img src="imgs/kgb.png" alt="Logo do site" class="header-logo"/><!-->
+        <div class="banner">
+    </header>
+    <div class="chapeu">
+    <img src="{% static 'img/icone.png' %}" class="chapeu" alt="icone da pagina" />
+    </div>
+    <!-- Nossos Serviços -->
 
-        <div class='text-center'>
-            <h1>{{ title }}</h1>
-            <p>{{ content }}</p>
+<section class="servicos">
+    <h2 class="subtitle">Nossos Serviços</h2>
+    <div class="servicos-cards">
+        <!-- Primeiro Card -->
+        <div class="card">
+            <h3>Apoio Administrativo e<br> Gestão Empresarial</h3>
+            <img src="{% static 'img/apoio.png' %}" alt="Apoio administrativo e gestão empresarial" class="card-image">
+            <ul>
+                <li>Organização e Digitalização de Documentos</li>
+                <li>Gestão de Projetos</li>
+                <li>Atendimento ao Cliente</li>
+                <li>Controle de Agendas e Logística</li>
+            </ul>
+            <a href="servicos/apoio_administrativo.html" class="card-button">Saiba mais</a>
         </div>
-        <div class='container'>
-            <div class='row'>
-                <div class='col'>
-                    <!--<img src="{% static 'img/loja_virtual112.png' %}" class='img-fluid' />-->
-                </div>
-            </div>
-            {% if request.user.is_authenticated %}
-            <div class='text-center'>
-            <!--<div class='row'>-->
-                <!--<div class='col'>-->
-                    <h1>Premium</h1>
-                    <p>{{ premium_content }}</p>
-                </div>
-            </div>
-            {% endif %}
+        <!-- Segundo Card -->
+        <div class="card">
+            <h3>Terceirização Financeira e Gestão de Recursos</h3>
+            <img src="{% static 'img/financeiro.png' %}" alt="Terceirização financeira" class="card-image">
+            <ul>
+                <li>Administração de Fluxo de Caixa</li>
+                <li>Elaboração de Relatórios Financeiros</li>
+                <li>Assessoria em Investimentos</li>
+            </ul>
+            <a href="servicos/terceirizacao_financeira.html" class="card-button">Saiba mais</a>
         </div>
 
-        <!--conteudo principal-->
-        <header class="header">
-            <div class="banner">
-                <h1>KGB SOLUTIONS</h1>
-                <p>Atendimento original e personalizado voltado para modalidade de licitações.</p>
-            </div>
-        </header>
-    
-        <section class="servicos">
-            <h2 class="subtitle">Nossos Serviços</h2>
-            <div class="servicos-cards">
-                <!-- Primeiro Card -->
-                <div class="card">
-                    <img src="{% static 'img/apoio.png' %}" alt="Apoio administrativo e gestão empresarial" class="card-image">
-                    <div class="card-content">
-                        <h3>Apoio Administrativo e Gestão Empresarial</h3>
-                        <ul>
-                            <li>Organização e Digitalização de Documentos</li>
-                            <li>Gestão de Projetos</li>
-                            <li>Atendimento ao Cliente</li>
-                            <li>Controle de Agendas e Logística</li>
-                        </ul>
-                        <!-- link para servicos -->
-                        <a href="servicos/apoio_administrativo.html" class="card-button">Saiba mais</a>
-                    </div>
-                </div>
-        
-                <!-- Segundo Card -->
-                <div class="card">
-                    <img src="{% static 'img/financeiro.png' %}" alt="Terceirização financeira" class="card-image">
-                    <div class="card-content">
-                        <h3>Terceirização Financeira e Gestão de Recursos</h3>
-                        <ul>
-                            <li>Administração de Fluxo de Caixa</li>
-                            <li>Elaboração de Relatórios Financeiros</li>
-                            <li>Assessoria em Investimentos</li>
-                        </ul>
-                        <!-- link para servicos -->
-                        <a href="servicos/terceirizacao_financeira.html" class="card-button">Saiba mais</a>
-                    </div>
-                </div>
-        
-                <!-- Terceiro Card -->
-                <div class="card">
-                    <img src="{% static 'img/agenda.png' %}" alt="Planejamento e organização administrativa" class="card-image">
-                    <div class="card-content">
-                        <h3>Planejamento e Organização Administrativa</h3>
-                        <ul>
-                            <li>Criação de Cronogramas</li>
-                            <li>Gestão de Prazos e Tarefas</li>
-                            <li>Otimização de Processos</li>
-                            <li>Suporte Estratégico para Tomadas de Decisão</li>
-                        </ul>
-                        <!-- link para servicos -->
-                        <a href="servicos/planejamento_organizacao.html" class="card-button">Saiba mais</a>
-                    </div>
+        <!-- Terceiro Card -->
+        <div class="card">
+            <h3>Planejamento e  Organização Administrativa</h3>
+            <img src="{% static 'img/agenda.png' %}" alt="Planejamento e ajuda com organização administrativa" class="card-image">
+            <ul>
+                <li>Criação de Cronogramas</li>
+                <li>Gestão de Prazos e Tarefas</li>
+                <li>Otimização de Processos</li>
+                <li>Suporte Estratégico para Tomadas de Decisão</li>
+            </ul>
+            <a href="servicos/planejamento_organizacao.html" class="card-button">Saiba mais</a>
+        </div>
+
+        <!-- Quarto Card -->
+        <div class="card">
+            <h3>Consultoria em Licitações Públicas e Privadas</h3>
+            <img src="{% static 'img/licitacao.png' %}" alt="Consultoria em Licitações" class="card-image">
+            <ul>
+                <li>Apoio no processo de licitações públicas e privadas</li>
+                <li>Análise de Editais e Regulamentos</li>
+                <li>Análise de Riscos em Licitações</li>
+            </ul>
+            <a href="servicos/licitacoes.html" class="card-button">Saiba mais</a>
+        </div>
+
+        <!-- Quinto Card -->
+        <div class="card">
+            <h3>Desenvolvimento<br> de<br> Sistemas</h3>
+            <img src="{% static 'img/sistemas.png' %}" alt="Desenvolvimento de Sistemas" class="card-image">
+            <ul>
+                <li>Criação de software sob medida</li>
+                <li>Automatização de processos empresariais</li>
+                <li>Desenvolvimento de aplicativos corporativos</li>
+                <li>Suporte e Manutenção Pós-Implementação</li>
+            </ul>
+            <a href="servicos/desenvolvimento_sistemas.html" class="card-button">Saiba mais</a>
+        </div>
+    </div>
+</section>
+    <!-- O que nossos clientes dizem -->
+    <section class="clientes">
+        <h2>O que nossos clientes dizem</h2>
+        <div class="testimonials animate-on-scroll">
+            <div class="testimonial">
+                <p class="cliente-nome">João Silva</p>
+                <p class="cliente-info">São Paulo</p>
+                <p class="testimonial-text">"Excelente serviço! A equipe é muito profissional e atenciosa."</p>
+                <div class="avaliacao">
+                    <div class="stars">★★★★★</div> <!-- Estrelas de avaliação -->
                 </div>
             </div>
-        </section>
-        
-    
-        <section class="sobre">
-            <h2>Sobre Nós</h2>
-            <p>Com anos de experiência, a KGB SA é referência em serviços variados, oferecendo qualidade, confiança e suporte.</p>
-        </section>
-        <section class="agendamento">
-            <h2>Agendamento</h2>
-            <p>Agende uma consulta online com nossa equipe de especialistas para tirar suas dúvidas e saber como podemos ajudar.</p>
-            <p><a href="contact" class="button">Agendar Agora</a></p>
-        </section>
-    
-        <script src="js/configuracoes.js"></script> <!-- Script para alternar o tema -->
-       <!-- Footer com ícone do Instagram -->
-    <footer class="footer">
-        <a href="https://www.instagram.com/kgbsolutions" target="_blank" class="instagram-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30" height="30">
-        </a>
-        <a href="https://www.threads.net/@kgbsolutions" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Threads_%28app%29.svg" alt="Threads" width="30" height="30">
-        </a>
-    </footer>
+            <div class="testimonial">
+                <p class="cliente-nome">Maria Oliveira</p>
+                <p class="cliente-info">Rio de Janeiro</p>
+                <p class="testimonial-text">"A experiência foi incrível, superou todas as minhas expectativas!"</p>
+                <div class="avaliacao">
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p class="cliente-nome">Ana Costa</p>
+                <p class="cliente-info">Porto Alegre</p>
+                <p class="testimonial-text">"Muito satisfeita com o resultado. Recomendo a todos!"</p>
+                <div class="avaliacao">
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sobre Nós -->
+    <section class="sobre-nos">
+        <div class="sobre-nos-content animate-on-scroll">
+            <div class="sobre-nos-info">
+                <h2>Sobre Nós</h2>
+                <p>Somos uma empresa especializada em oferecer soluções personalizadas para a área de licitações e gestão empresarial. Com uma equipe altamente capacitada, buscamos sempre oferecer os melhores serviços, focando em inovação, eficiência e qualidade no atendimento.</p>
+            </div>
+            <div class="sobre-nos-imagem">
+                <img src="{% static 'img/kgbsolutions2.png' %}" alt="Nossa equipe" class="imagem-sobre-nos">
+            </div>
+        </div>
+    </section>
+
+    <!-- Agendamento Profissional -->
+    <section class="agendamento">
+        <div class="agendamento-container animate-on-scroll">
+            <h2>Agendamento de Consultoria</h2>
+            <h3>Reserve sua consulta com um de nossos especialistas e descubra como podemos agregar valor ao seu negócio.</h3>
+            <p class="descricao-agendamento">Para agendar, clique no botão abaixo. Nossa equipe entrará em contato com você para confirmar os detalhes e agendar o horário mais conveniente.</p>
+            <a href="agendar.html" class="button agendar-button">Agendar Agora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+  <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Informações de Contato -->
+        <div class="footer-section">
+            <h3>Contato</h3>
+            <ul>
+                <li>Email: <a href="mailto:kgbsolutionsbr@gmail.com.br">kgbsolutionsbr@gmail.com.br</a></li>
+                <a href="https://wa.me/5511987654321" target="_blank">Clique para conversar no WhatsApp</a>
+                <li>Endereço: R. Arno Waldemar Döhler, 957 - Zona Industrial Norte, Joinville - SC</li>
+            </ul>
+        </div>
+
+        <!-- Redes Sociais -->
+        <div class="footer-section">
+            <h3>Redes Sociais</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/kgbsolutions" target="_blank" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30" height="30">
+                </a>
+                <a href="https://www.threads.net/@kgbsolutions" target="_blank" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Threads_%28app%29.svg" alt="Threads" width="30" height="30">
+                </a>
+                <a href="https://wa.me/47988527542" target="_blank" class="social-icon">
+                   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Whatsapp" width="30" height="30">
+                <!-- Adicione outros ícones de redes sociais aqui, se necessário -->
+            </div>
+        </div>
+        <!-- Links Importantes -->
+        <div class="footer-section">
+            <h3>Links Úteis</h3>
+            <ul>
+                <li><a href="perfil/perfil.html">Perfil</a></li>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="servicos/apoio_administrativo.html">Serviços</a></li>
+                <li><a href="agendar.html">Agendamento De Consulta</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 KGB Solutions. Todos os direitos reservados.</p>
+    </div>
+</footer>
     
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="{% static 'js/darkmode.js' %}"></script>
         <script>
-                // darkmode.js
-                    document.addEventListener('DOMContentLoaded', function () {
-                        // Verifica se o modo escuro está ativado no localStorage
-                        const modoEscuro = localStorage.getItem('modoEscuro') === 'true';
-
-                        // Se estiver no modo escuro, aplica a classe dark-mode
-                        if (modoEscuro) {
-                            document.body.classList.add('dark-mode');
-                        }
-
-                        // Evento de clique no botão de alternar modo
-                        const modoClaroBtn = document.getElementById('modo-claro');
-                        if (modoClaroBtn) {
-                            modoClaroBtn.addEventListener('click', function () {
-                                document.body.classList.toggle('dark-mode');
-                                
-                                // Armazena a preferência do usuário no localStorage
-                                const isDarkMode = document.body.classList.contains('dark-mode');
-                                localStorage.setItem('modoEscuro', isDarkMode);
-                            });
-                        }
-                    });
-
-                    function toggleSobre() {
-                        var conteudo = document.querySelector('.sobre-conteudo');
-                        conteudo.style.display = conteudo.style.display === 'block' ? 'none' : 'block';
-                    }
-
-                        // Função para verificar se o elemento está visível na tela
-                        function isElementInViewport(el) {
-                            const rect = el.getBoundingClientRect();
-                            return (
-                                rect.top >= 0 &&
-                                rect.left >= 0 &&
-                                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                            );
-                        }
-
-                        // Função que adiciona a classe "visible" quando o elemento entra na tela
-                        function handleScroll() {
-                            const elements = document.querySelectorAll('.animate-on-scroll');
-                            elements.forEach(el => {
-                                if (isElementInViewport(el)) {
-                                    el.classList.add('visible');
-                                }
-                            });
-                        }
-
-                        // Adiciona o evento de scroll
-                        window.addEventListener('scroll', handleScroll);
-
-                    // Controla o menu de acessibilidade
-                    function toggleAcessibilidadeMenu() {
-                        const menu = document.querySelector('.acessibilidade-options');
-                        menu.classList.toggle('show');
-                    }
-
-                    // Aumentar fonte
-                    let fontSize = 16; // Tamanho base
-                    function aumentarFonte() {
-                        fontSize += 2;
-                        document.body.style.fontSize = `${fontSize}px`;
-                    }
-
-                    // Diminuir fonte
-                    function diminuirFonte() {
-                        fontSize = Math.max(12, fontSize - 2); // Limite mínimo de 12px
-                        document.body.style.fontSize = `${fontSize}px`;
-                    }
-
-                    // Ativar/desativar alto contraste
-                    function toggleContraste() {
-                        document.body.classList.toggle('alto-contraste');
-                    }
-
-                    // Resetar as alterações
-                    function resetarAlteracoes() {
-                        // Resetar o tamanho da fonte para o valor padrão
-                        fontSize = 16; // Restabelece o tamanho original
-                        document.body.style.fontSize = `${fontSize}px`;
-
-                        // Remover a classe de alto contraste, caso esteja ativada
-                        if (document.body.classList.contains('alto-contraste')) {
-                            document.body.classList.remove('alto-contraste');
-                        }
-                    }
-
-
-
-                    // Tornar o botão arrastável
-                    const menu = document.getElementById('menu-acessibilidade');
-                    const button = document.getElementById('acessibilidade-btn');
-
-                    let isDragging = false;
-                    let offsetX = 0;
-                    let offsetY = 0;
-
-                    button.addEventListener('mousedown', (e) => {
-                        isDragging = true;
-                        offsetX = e.clientX - menu.getBoundingClientRect().left;
-                        offsetY = e.clientY - menu.getBoundingClientRect().top;
-                        menu.style.cursor = 'grabbing';
-                    });
-
-                    document.addEventListener('mousemove', (e) => {
-                        if (isDragging) {
-                            const x = e.clientX - offsetX;
-                            const y = e.clientY - offsetY;
-                            menu.style.left = `${x}px`;
-                            menu.style.top = `${y}px`;
-                            menu.style.right = 'auto'; // Remove a fixação no lado direito
-                            menu.style.bottom = 'auto'; // Garante que só usa top e left
-                        }
-                    });
-
-                    document.addEventListener('mouseup', () => {
-                        isDragging = false;
-                        menu.style.cursor = 'grab';
-                    });
-
-
             const logoutMessage = "{{ request.session.logout_message|default:'' }}";
             if (logoutMessage) {
                 alert(logoutMessage);  // Exibe o alerta
-                // Limpa a mensagem da sessão
+                            // Limpa a mensagem da sessão
                 fetch("{% url 'clear_logout_message' %}");
             }
         </script>

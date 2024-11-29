@@ -1,3 +1,4 @@
+/* Reset de estilos */
 * {
     margin: 0;
     padding: 0;
@@ -5,372 +6,647 @@
     font-family: Arial, sans-serif;
 }
 
-/* Estilo para o tema escuro */
-/* Reset de estilos para garantir consistência */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Estilo para o tema escuro */
+/* Estilo padrão do site (Modo Claro) */
 body {
-    background-color: #0a1d34;  /* Azul escuro */
-    color: #f5f5f5;  /* Texto claro */
+    background-color: #dbdbdb;
+    color: #000000;
     line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Cabeçalho */
-.header {
-    background-color: #1c3d6e;  /* Azul escuro */
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
+/* Classe de animação */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); /* Desloca o elemento para baixo */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transição suave */
 }
+
+/* Classe visível, que será adicionada quando o elemento entrar na tela */
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0); /* Retorna à posição original */
+}
+
+/* Cabeçalho e Tipografia */
+h1, h2 {
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 20px; /* Ajuste o valor conforme necessário */
+}
+
+
+h3 {
+    font-size: medium;
+    color: #fff;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Navbar */
+.navbar {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #fff;
+    margin: 0 10px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff0;
+}
+
+
+/* Submenu */
+.submenu {
+    display: flex;
+    gap: 20px;
+}
+
+.submenu a {
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.submenu a:hover {
+    background-color: #003ea3;
+}
+
+.submenu .logout {
+    color: #d85c5cd0;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+
+/* Cabeçalho com imagem de fundo */
+.header {
+    background: url('../imgs/banner2.png') no-repeat center center/cover;
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    height: 400px;
+}
+
 
 .header h1 {
-    font-size: 32px;
-    margin-bottom: 5px;
+    position: relative;
+    z-index: 2;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
 }
 
 .header p {
-    font-size: 16px;
-    margin-top: 5px;
+    position: relative;
+    z-index: 2;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeIn 1.2s ease-out;
 }
 
-/* Estilo dos Cards */
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .servicos-cards {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap; /* Responsivo para ajustar em telas menores */
+    margin: 20px auto;
+    width: 100%;
+    padding: 20px;
 }
 
 .card {
-    background-color: #1c3d6e; /* Azul escuro */
-    color: #fff;
+    background-color: #c6c6c6eb;  
+    color: #004a75;  
     padding: 20px;
-    width: 250px;
+    width: 220px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    overflow: hidden; /* Para imagens ficarem ajustadas */
+    display: flex;
+    flex-direction: column;
+    min-height: 380px;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Estilo para fade-in */
+    opacity: 0;  /* Começa invisível */
+    transform: translateY(20px);  /* Leve deslocamento para baixo */
+    animation: fadeIn 0.8s ease-in-out forwards;  /* Animação */
 }
 
 .card:hover {
-    transform: translateY(-8px); /* Efeito de levitação */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);  
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  
 }
 
 .card h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #fff;
-}
-
-.card p {
-    font-size: 14px;
-    color: #ddd;
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #005c99;  
 }
 
 .card img {
     width: 100%;
-    height: 150px;
-    object-fit: cover; /* Ajusta a imagem para cobrir o espaço */
-    border-radius: 10px 10px 0 0; /* Bordas arredondadas apenas no topo */
+    height: 120px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 
 .card ul {
     list-style: none;
     padding: 0;
+    margin: 10px 0;
     text-align: left;
-    margin: 15px 0;
+    flex-grow: 1;
 }
 
 .card ul li {
-    margin-bottom: 10px;
-    position: relative;
+    margin-bottom: 8px;
     padding-left: 20px;
-    color: #fff;
+    position: relative;
+    font-size: 0.9em;
+    color: #007bb5;  
 }
 
 .card ul li::before {
     content: "•";
     position: absolute;
     left: 0;
-    color: #ffa500; /* Marcador laranja */
+    color: #0096d6;  
 }
 
 .card a {
     display: inline-block;
-    background-color: #ffa500;
-    color: #001b66;
-    text-decoration: none;
+    background-color: #0096d6;  
+    color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    font-size: 0.9em;
+    text-decoration: none;
 }
 
 .card a:hover {
-    background-color: #ffd700; /* Botão mais claro ao passar o mouse */
-    color: #001b66;
+    background-color: #007bb5;  
 }
 
-/* Seções */
-.section {
-    padding: 50px 20px;
+/* Animação de Fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Seções "Sobre Nós" e "Agendamento" */
+.agendamento {
     text-align: center;
+    margin: 40px auto;
+    padding: 20px 0;
+    max-width: 800px; /* Limita a largura da seção */
 }
 
-h2, p {
-    font-size: 24px;
-    color: #f5f5f5;  /* Texto claro em fundo escuro */
-    margin-bottom: 15px;
-    text-align:center;
-}
-
-.section-content {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 15px;
-    color: #bbb;
-    line-height: 1.5;
-}
-
-/* Cards de Serviços */
-.servicos-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-/* Estilo do botão "Agendar Agora" */
-.agendamento button {
-    background-color: #005bb5; /* Cor de fundo azul escuro */
-    color: #fff; /* Cor do texto */
-    border: none;
-    padding: 15px 30px; /* Aumentando o tamanho do botão */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer;
-    font-size: 18px; /* Tamanho da fonte */
-    transition: background-color 0.3s, transform 0.3s;
-    text-align: center;
-    margin-top: 20px; /* Adicionando um espaçamento superior */
-}
-
-.agendamento button:hover {
-    background-color: #003d99; /* Cor de fundo quando o botão for hover */
-    transform: translateY(-5px); /* Efeito de levitação */
-}
-
-.agendamento button:active {
-    transform: translateY(2px); /* Efeito de clique */
-}
-
-
-.card {
-    background-color: #1c3d6e;  /* Azul escuro para cards */
-    color: #fff;
-    padding: 20px;
-    width: 250px;
-    border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.card h3 {
-    font-size: 20px;
+.agendamento h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
     margin-bottom: 10px;
 }
 
-.card p {
-    font-size: 14px;
-    color: #ddd;
+.agendamento h3 {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.agendamento .descricao-agendamento {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-/* Navbar */
-.navbar {
-    background-color: #1c3d6e;  /* Azul escuro */
-    padding: 10px 20px;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.menu {
-    position: relative;
+.agendamento .button {
     display: inline-block;
-}
-
-/* Submenu */
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #2a5585;  /* Azul mais claro */
-    min-width: 140px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.submenu a {
-    color: #fff;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-}
-
-.submenu a:hover {
-    background-color: #3c6b96;
-}
-
-/* Exibir submenu ao passar o mouse */
-.menu:hover .submenu {
-    display: block;
-}
-
-/* Botão de Sair */
-.submenu .logout {
-    color: #ff4d4d;
-}
-
-.submenu .logout:hover {
-    background-color: #ff9999;
-}
-
-/* Estilos para o modo claro */
-body.modo-claro {
-    background-color: #6b2e2e;  /* Cor de fundo clara em tom de vermelho */
-    color: #ffffff;  /* Texto claro para contraste */
-}
-
-/* Alterar o fundo e a cor dos elementos para o modo claro */
-body.modo-claro .header {
-    background-color: #9e3a3a;  /* Cabeçalho vermelho mais suave */
-    color: #ffffff;  /* Texto claro */
-}
-
-body.modo-claro .card {
-    background-color: #b04d4d;  /* Cards vermelhos */
-    color: #ffffff;  /* Texto claro */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombras para destaque */
-}
-
-body.modo-claro .navbar {
-    background-color: #9e3a3a;  /* Navbar vermelha */
-    color: #ffffff;  /* Texto claro */
-}
-
-body.modo-claro .navbar a {
-    color: #ffffff;  /* Links claros na navbar */
-}
-
-body.modo-claro .submenu {
-    background-color: #9e3a3a;  /* Submenu vermelho */
-    color: #ffffff;  /* Texto claro */
-}
-
-body.modo-claro .submenu a {
-    color: #ffffff;  /* Links brancos no submenu */
-}
-
-body.modo-claro .submenu a:hover {
-    background-color: #b04d4d;  /* Hover em tom mais forte de vermelho */
-}
-body.modo-claro .button{
-    background-color: #b04d4d;  /* Botão vermelho */
-    color: #ffffff; /* Texto claro */
-    border: none;
-    padding: 15px 30px;
-    border-radius: 5px;
-    cursor: pointer;
     font-size: 18px;
-    transition: background-color 0.3s, transform 0.3s;
-    text-align: center;
-    margin-top: 20px;
-}
-body.modo-claro .button:active{
-    transform: translateY(2px); /* Efeito de clique */
-}
-body.modo-claro .button:hover {
-    background-color: #a13434; /* Cor ao passar o mouse */
+    background: linear-gradient(135deg, #4d8bf4, #004fbb);
+    color: #fff;
+    border: none;
+    padding: 15px 35px; /* Aumentei o padding para dar mais ênfase ao botão */
+    border-radius: 50px; /* Bordas mais arredondadas para um visual mais moderno */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1); /* Adicionando uma leve sombra */
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* Transições mais suaves */
+    cursor: pointer; /* Adiciona o cursor pointer para indicar que é clicável */
+    margin-top: 35px; /* Adiciona mais espaço acima do botão */
+
 }
 
-    
-
-/* Garantir visibilidade em modo claro para textos em links e interações */
-body.modo-claro .navbar a:hover,
-body.modo-claro .card a:hover,
-body.modo-claro .agendamento button:hover {
-    color: #ff7f7f; /* Cor suave de vermelho para hover */
+.agendamento .button:hover {
+    transform: translateY(-4px); /* Eleva um pouco o botão no hover */
+    background: #003ea3;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.281); /* Aumenta a sombra para criar o efeito de destaque */
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff; /* Cor de fundo original */
-    color: #ffffff; /* Cor do texto */
-    text-align: center;
-    text-decoration: none; /* Remove o sublinhado */
-    border-radius: 5px; /* Borda arredondada */
-    font-size: 16px;
-}
-
-.button:hover {
-    background-color: #0056b3; /* Cor ao passar o mouse */
+.agendamento .button:active {
+    transform: translateY(2px); /* Efeito de pressionamento do botão */
+    background: #003d8f;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1); /* Diminui a sombra para simular a ação de clique */
 }
 
 
-.button:active {
-    transform: translateY(2px); /* Efeito de clique */
-}
+/* Fonte profissional (Roboto) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 .footer {
-    text-align: right;
-    padding: 20px;
+    background-color: #f2f2f2;  /* Cor de fundo mais clara */
+    color: #333;  /* Cor de texto mais escura, mas ainda suave */
+    font-family: 'Roboto', sans-serif;  /* Fonte profissional */
+    padding: 15px 10px;  /* Diminuí o padding pela metade */
+    font-size: 14px;
 }
 
-.instagram-icon img {
-    width: 30px;
-    height: 30px;
-    opacity: 0.7;
-    transition: opacity 0.3s;
+.footer-container {
+    display: flex;
+    justify-content: flex-end;  /* Alinha as colunas à direita */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px; /* Aumentei o espaçamento entre as colunas */
 }
 
-.instagram-icon img:hover {
-    opacity: 1;
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
 }
 
-.social-icon {
-    margin-left: 10px;
+.footer-section h3 {
+    font-size: 18px; /* Diminui o tamanho do título */
+    margin-bottom: 25px;  /* Aumentei o espaço abaixo do título */
+    font-weight: 500;
+    color: #555;  /* Cor de título mais clara */
 }
 
-.social-icon img {
-    width: 30px;
-    height: 30px;
-    opacity: 0.7;
-    transition: opacity 0.3s;
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    line-height: 1.8;  /* Aumentei o espaçamento entre os itens da lista */
 }
 
-.social-icon img:hover {
-    opacity: 1;
+.footer-section ul li {
+    margin-bottom: 20px;  /* Maior espaço entre os itens da lista */
+}
+
+.footer-section ul li a {
+    color: #333;  /* Cor de link mais clara */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #5f8a8b;  /* Cor de destaque no hover mais suave */
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 30px;  /* Maior espaço entre os ícones */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;  /* Menor espaço entre o conteúdo e o copyright */
+    font-size: 12px;
+    color: #999;  /* Cor de texto mais suave */
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 18px; 
+
+
+}
+
+.footer-section .social-icon img {
+    transition: transform 0.3s ease;
+}
+
+.footer-section .social-icon img:hover {
+    transform: scale(1.1);  /* Efeito de aumento nos ícones ao passar o mouse */
+}
+
+
+
+
+/* Botão de modo claro */
+#modo-claro {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#modo-claro:hover {
+    background-color: #0a56cfa6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .servicos-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .header {
+        padding: 80px 20px;
+        height: auto;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+}
+
+/* Estilo para "O que nossos clientes dizem" */
+/* Estilo para "O que nossos clientes dizem" */
+.clientes {
+    background-color: 666; /* Fundo claro e suave */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.clientes h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.testimonials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.testimonial {
+    background-color: #243c6ed5;
+    color: #000000;
+    padding: 25px;
+    width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+}
+
+/* Organizar o nome da testemunha, cidade, texto e estrelas */
+.cliente-nome {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.cliente-info {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.testimonial-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.avaliacao {
+    margin-top: auto; /* Coloca as estrelas na parte inferior */
+}
+
+.stars {
+    font-size: 2.5em;
+    margin-top: 10px;
+    color:#ffa500;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6); /* Sombra forte */
+}
+
+/* Estilos para a seção Sobre Nós */
+.sobre-nos {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.sobre-nos-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sobre-nos-info {
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.sobre-nos-info h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.sobre-nos-info p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Estilos para a imagem na seção Sobre Nós */
+.sobre-nos-imagem {
+    width: 200%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 20px; /* Arredondamento das bordas */
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.377); /* Sombras sutis ao redor da imagem */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para efeitos de hover */
+}
+
+.sobre-nos-imagem:hover {
+    transform: scale(1.15); /* Aumenta a imagem ao passar o mouse */
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.514); /* Sombras mais fortes ao passar o mouse */
+}
+
+.sobre-nos-imagem img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo para a classe imagem */
+.imagem {
+    margin-left: 50rem; /* Espaço entre a imagem e o conteúdo à esquerda */
+    width: 50%; /* Define a largura da imagem para 50% do espaço disponível */
+    max-width: 400px; /* Limita a largura máxima da imagem */
+    height: auto; /* Garante que a altura da imagem seja proporcional à sua largura */
+    border-radius: 10px; /* Adiciona bordas arredondadas para suavizar os cantos da imagem */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para a imagem */
+    transition: transform 0.3s ease-in-out; /* Transição suave para efeito de hover */
+}
+
+/* Efeito de hover para a imagem */
+.imagem:hover {
+    transform: scale(1.05); /* Aumenta a imagem suavemente ao passar o mouse */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .imagem {
+        float: none; /* Remove o alinhamento à direita em telas pequenas */
+        width: 80%; /* Ajusta a largura para 80% em dispositivos móveis */
+        margin: 20px auto; /* Centraliza a imagem */
+        display: block; /* Exibe a imagem como bloco para centralização */
+    }
+}
+.cliente-nome {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.cliente-info {
+    font-size: 1em;
+    color: #888;
+}
+
+.testimonial:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .testimonials {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+.chapeu {
+    display: flex; /* Usamos flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 30vh; /* Faz a div ocupar toda a altura da janela */
+    margin: 0; /* Remove margens padrões */
+    margin: 40px;
+}
+
+/* Estilo para a imagem com a classe 'chapeu-img' */
+.chapeu-img {
+    
+    max-width: 50%;  /* Define o tamanho máximo da largura como 50% da tela */
+    max-height: 50%; /* Define o tamanho máximo da altura como 50% da tela */
+    object-fit: contain; /* Garante que a imagem não seja distorcida */
 }
