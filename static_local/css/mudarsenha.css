@@ -17,6 +17,7 @@ body {
 }
 
 .container {
+    margin-top: -100px;
     width: 100%;
     max-width: 400px;  /* Limita a largura do conteúdo */
     background-color: #fff;
@@ -27,13 +28,14 @@ body {
 }
 
 .text-center h2 {
-    color: #4CAF50;
+    
+    color: #2600ff;
     margin-bottom: 20px;
     font-size: 28px;
 }
 
 .form-container {
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .form-container h3 {
@@ -59,11 +61,11 @@ form button {
 form input:focus,
 form button:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #2600ff;
 }
 
 .submit-btn {
-    background-color: #4CAF50;
+    background-color: #2600ff;
     color: white;
     border: none;
     cursor: pointer;
@@ -71,7 +73,7 @@ form button:focus {
 }
 
 .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #0a0041;
 }
 
 .messages {
@@ -95,4 +97,58 @@ form button:focus {
         padding: 20px;
         width: 100%;
     }
+}
+
+/* Navbar */
+.navbar {
+    
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-left, .navbar-right {
+    
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar a {
+    font-weight: bold;
+    padding:10px;
+    background-color: #2600ff;
+    border-radius:10px;
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 10px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    transition: background-color 0.3s ease;
+    
+}
+
+.navbar a:hover {
+    transition: 0.3s ease;
+    background-color: #0a0041;
+    padding:12px;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.menu {
+
+    position: relative;
+    display: inline-block;
 }
