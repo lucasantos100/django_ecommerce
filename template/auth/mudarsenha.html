@@ -1,20 +1,30 @@
-<div class='text-center'>
-    <h2>Mude Sua Senha!</h2>
+{% load static %}
+<link rel='stylesheet' href='{% static "css/mudarsenha.css" %}'>
+
+<div class="container">
+    <div class="text-center">
+        <h2>Mude Sua Senha!</h2>
+    </div>
+
+    {% block content %}
+    <div class="form-container">
+        <h3>Alterar Senha</h3>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}  <!-- Exibe o formulário -->
+            </div>
+            <button type="submit" class="submit-btn">Alterar Senha</button>
+        </form>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endblock %}
 </div>
-{% block content %}
-  <h2>Alterar Senha</h2>
-
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}  <!-- Exibe o formulário -->
-    <button type="submit">Alterar Senha</button>
-  </form>
-
-  {% if messages %}
-    <ul>
-      {% for message in messages %}
-        <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-{% endblock %}

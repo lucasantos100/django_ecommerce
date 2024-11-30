@@ -91,33 +91,65 @@ a {
 }
 
 .navbar a:hover {
-    color: #ff0;
+    color: rgb(38, 0, 255);
 }
 
 
-/* Submenu */
-.submenu {
-    display: flex;
-    gap: 20px;
+.menu {
+    position: relative;
+    display: inline-block;
 }
 
-.submenu a {
-    color: #fff;
-    padding: 10px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-}
-
-.submenu a:hover {
-    background-color: #003ea3;
-}
-
-.submenu .logout {
-    color: #d85c5cd0;
+/* Estilo do link principal "MINHA CONTA" */
+.menu > a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
     transition: background-color 0.3s;
-    border-radius: 5px;
 }
 
+/* Quando passar o mouse sobre "MINHA CONTA", muda a cor */
+.menu > a:hover {
+    
+}
+
+/* Estilo do submenu (oculto por padrão) */
+.submenu {
+    display: block;
+    opacity: 0;  /* Começa invisível */
+    height: 0;   /* Começa com altura 0 */
+    overflow: hidden;  /* Oculta o conteúdo que ultrapassa */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    z-index: 1;
+    transition: opacity 0.3s ease, height 0.3s ease; /* Transição suave para a animação */
+}
+
+/* Estilo dos links do submenu */
+.submenu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+}
+
+/* Mudança de cor do submenu quando passar o mouse */
+.submenu a:hover {
+}
+
+/* Exibe o submenu quando passar o mouse sobre o item de menu */
+.menu:hover .submenu {
+    opacity: 1;  /* Torna visível */
+    height: auto; /* Ajusta altura para o conteúdo */
+}
 
 /* Cabeçalho com imagem de fundo */
 
@@ -639,4 +671,8 @@ a {
     max-width: 50%;  /* Define o tamanho máximo da largura como 50% da tela */
     max-height: 50%; /* Define o tamanho máximo da altura como 50% da tela */
     object-fit: contain; /* Garante que a imagem não seja distorcida */
+}
+
+html, body {
+    scroll-behavior: smooth; /* Ativa a rolagem suave em todos os links de ancoragem */
 }

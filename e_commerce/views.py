@@ -110,7 +110,7 @@ def mostrar_formulario(request):
 def formulario_sucesso(request):
     return HttpResponse('Formulário enviado com sucesso!')
 
-
+#formulario de mudar senha herdado do proprio django
 @login_required
 def mudar_senha(request):
     if request.method == 'POST':
