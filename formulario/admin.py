@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import Formulario
-from django.contrib import admin
 
 # Personalizando o título da barra de título do navegador
 admin.site.site_header = 'KGB Solutions - Administração'

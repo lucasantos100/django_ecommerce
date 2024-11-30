@@ -42,7 +42,8 @@ INSTALLED_APPS = [
 
     #app do lucas django
     'products',
-    'formulario'
+    'formulario',
+    'Contatos'
 ]
 
 MIDDLEWARE = [

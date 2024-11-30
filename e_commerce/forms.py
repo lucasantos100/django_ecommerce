@@ -2,12 +2,16 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.core.validators import RegexValidator
 from formulario.models import Formulario
+from Contatos.models import Contato
 
 User = get_user_model()
 
 #formulario de contato
-class ContactForm(forms.Form):
-    full_name = forms.CharField(
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contato
+        fields = ['nome', 'email', 'telefone', 'data', 'horario', 'mensagem']
+    nome = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
@@ -23,7 +27,7 @@ class ContactForm(forms.Form):
             }
         )
     )
-    numero = forms.CharField(
+    telefone = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
@@ -34,7 +38,7 @@ class ContactForm(forms.Form):
         max_length=15,  # Limite de caracteres, pode ser ajustado conforme necessário
         required=False  # Deixe o campo opcional ou altere para True, se necessário
     )
-    date = forms.DateField(
+    data = forms.DateField(
         widget=forms.DateInput(
             attrs={
                 "class": "form-control",
@@ -43,7 +47,7 @@ class ContactForm(forms.Form):
             }
         )
     )
-    time = forms.TimeField(
+    horario = forms.TimeField(
         widget=forms.TimeInput(
             attrs={
                 "class": "form-control",
@@ -52,7 +56,7 @@ class ContactForm(forms.Form):
             }
         )
     )
-    content = forms.CharField(
+    mensagem = forms.CharField(
         widget=forms.Textarea(
             attrs={
                 "class": "form-control",

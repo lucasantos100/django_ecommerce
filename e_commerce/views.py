@@ -6,11 +6,11 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .forms import ContactForm, LoginForm, RegisterForm
+from .forms import ContactForm, LoginForm, RegisterForm, FormularioForm
 
 from formulario.models import Formulario
 
-from .forms import FormularioForm
+from Contatos.models import Contato
 
 
 def home_page(request):
@@ -30,16 +30,23 @@ def about_page(request):
     return render(request, "about/view.html", context)
 
 def contact_page(request):
-    contact_form = ContactForm(request.POST or None)
-    context = {
-                    "title": "Contato - KGB Solutions",
-                    "content": "Bem-Vindo à Página de Contato",
-                    "form": contact_form	
-              }
-    if contact_form.is_valid():
-        print(contact_form.cleaned_data)
-    return render(request, "contact/view.html", context)
+    if request.method == "POST":
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            # Salva o formulário no banco de dados
+            contact_form.save()
+            # Se o formulário for válido, redireciona para uma página de sucesso ou exibe uma mensagem
+            return redirect('formulario_sucesso')  # Você pode substituir 'success' com o nome da URL que deseja redirecionar após o sucesso
+    else:
+        contact_form = ContactForm()
 
+    context = {
+        "title": "Contato - KGB Solutions",
+        "content": "Bem-Vindo à Página de Contato",
+        "form": contact_form,
+    }
+
+    return render(request, "contact/view.html", context)
 def login_page(request):
     form = LoginForm(request.POST or None)
     context = {
