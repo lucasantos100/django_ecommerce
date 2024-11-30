@@ -8,6 +8,7 @@
 
 /* Estilo padrão do site (Modo Claro) */
 body {
+
     background-color: #dbdbdb;
     color: #000000;
     line-height: 1.6;
@@ -675,4 +676,11 @@ a {
 
 html, body {
     scroll-behavior: smooth; /* Ativa a rolagem suave em todos os links de ancoragem */
+
+    background-color: rgb(217, 217, 236);
+}
+.container{
+    display: flex;
+    justify-content: center;
+
 }
