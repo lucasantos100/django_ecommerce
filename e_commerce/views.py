@@ -136,3 +136,20 @@ def mudar_senha(request):
         form = PasswordChangeForm(user=request.user)
 
     return render(request, 'auth/mudarsenha.html', {'form': form})
+
+#pagina de servicos (totalmente html funcional, gerados por lucas KAUAN DOS ANJOS)
+
+def servico_1(request):
+    return render(request, "servicos/servico_1.html")
+
+def servico_2(request):
+    return render(request, "servicos/servico_2.html")
+
+def servico_3(request):
+    return render(request, "servicos/servico_3.html")
+
+def servico_4(request):
+    return render(request, "servicos/servico_4.html")
+
+def servico_5(request):
+    return render(request, "servicos/servico_5.html")

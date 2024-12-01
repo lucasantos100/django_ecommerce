@@ -1,0 +1,172 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo geral */
+body {
+    background-color: #f4f4f9; /* Cor de fundo clara */
+    color: #333; /* Texto principal */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1c3d6e; /* Azul escuro */
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Seções */
+h2 {
+    font-size: 28px;
+    color: #1c3d6e; /* Azul escuro */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+ul {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+    text-align: left;
+}
+
+ul li {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-left: 25px;
+}
+
+ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #1c3d6e;
+    font-weight: bold;
+}
+
+.imagem-centralizada {
+    max-width: 75%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Depoimentos */
+.depoimento {
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+    margin: 30px auto;
+    max-width: 700px;
+    border-left: 4px solid #1c3d6e;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.depoimento cite {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Botões */
+.button-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.button-container a {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #1c3d6e; /* Azul escuro */
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+.button-container a:hover {
+    background-color: #ffa500; /* Laranja no hover */
+    color: #001b66; /* Azul escuro para contraste */
+}
+/* Definir as cores para o modo escuro */
+body.dark-mode {
+    /* background-color: #121212;
+    color: #ffffff; */
+}
+
+body.dark-mode .navbar {
+    background-color: #333;
+}
+
+body.dark-mode .header {
+    background-color: #1a2a44;
+}
+
+body.dark-mode .card {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .card a {
+    background-color: #ffa500;
+}
+
+body.dark-mode .card a:hover {
+    background-color: #ffd700;
+}
+
+body.dark-mode .footer {
+    background-color: #1a2a44;
+    color: #fff;
+}
+
+/* Alterar o fundo do botão "Alternar modo" */
+#modo-claro {
+    background-color: #004fbb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#modo-claro:hover {
+    background-color: #003ea3;
+}

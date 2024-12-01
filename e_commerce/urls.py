@@ -30,8 +30,7 @@ from .views import home_page, about_page, contact_page, login_page, register_pag
 
 from .views import home_page, about_page, contact_page, login_page, logout_page, register_page
 
-
-from .views import home_page, about_page, contact_page, login_page, logout_page, register_page, clear_logout_message
+from .views import home_page, about_page, contact_page, login_page, logout_page, register_page, clear_logout_message, servico_1, servico_2, servico_3, servico_4, servico_5
 
 from . import views
 
@@ -45,10 +44,16 @@ urlpatterns = [
     path('mudarsenha/', views.mudar_senha, name='mudar_senha'),
     path('clear-logout-message/', clear_logout_message, name='clear_logout_message'),
     path('register/', register_page),
-    path('featured/', ProductFeaturedListView.as_view()),
-    path('featured/<int:pk>/', ProductFeaturedDetailView.as_view()),
+    #path('featured/', ProductFeaturedListView.as_view()),# chega a dar raiva de tao inutil
+    #path('featured/<int:pk>/', ProductFeaturedDetailView.as_view()),# chega a dar raiva de tao inutil
+    #path('products/', ProductListView.as_view()),
+    #path('products/<int:pk>', ProductDetailView.as_view()),
     path('products/', ProductListView.as_view()),
-    path('products/<int:pk>', ProductDetailView.as_view()),
+    path('products/2', servico_1),
+    path('products/3', servico_2),
+    path('products/4', servico_3),
+    path('products/5', servico_4),
+    path('products/6', servico_5),
     path('products/<slug:slug>/', ProductDetailSlugView.as_view()),
 	path('admin/', admin.site.urls),
     path('formularios/', views.mostrar_formulario, name='mostrar_formulario'),
