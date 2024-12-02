@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta em Licitações Públicas e Privadas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="../imgs/icone.png" type="image/png">
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="icon" href='{% static "img/icone.png" %}'  type="image/png">
 </head>
 <body>
     <header>
@@ -21,7 +21,7 @@
                 Oferecemos uma solução completa para consulta e acompanhamento de licitações, tanto públicas quanto privadas. 
                 Nossa plataforma permite que sua empresa identifique as melhores oportunidades, com a segurança e agilidade que você precisa para participar de processos licitatórios com sucesso.
             </p>
-            <img src="../imgs/licitacoes.jpg" alt="Consulta de Licitações" class="imagem-centralizada">
+            <img src='{% static "img/licitacoes.jpg" %}' alt="Consulta de Licitações" class="imagem-centralizada">
         </section>
 
         <section class="beneficios">
@@ -42,7 +42,7 @@
                 Nossa plataforma realiza a consulta em diversos portais de licitações, tanto públicos quanto privados, oferecendo relatórios detalhados com as melhores oportunidades. 
                 Nossa equipe também pode auxiliá-lo na análise e acompanhamento de cada processo licitatório.
             </p>
-            <img src="../imgs/ciclo-licitacao.jpg" alt=" " class="imagem-centralizada">
+            <img src='{% static "img/ciclo-licitacao.jpg" %}' alt=" " class="imagem-centralizada">
         </section>
 
         <section class="depoimentos">
@@ -55,10 +55,10 @@
         </section>
 
         <div class="button-container">
-            <a href="agendamento.html.html">Agendar Consulta</a>
+            <a href="/formularios">Agendar Consulta</a>
         </div>
         <div class="button-container">
-            <a href="../inicial.html" class="voltar">Voltar para a Página Inicial</a>
+            <a href="/#section1" class="voltar">Voltar para a Página Inicial</a>
         </div>
     </main>
     <!-- JavaScript -->

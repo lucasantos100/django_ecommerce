@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planejamento e Organização Administrativa</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="../imgs/icone.png" type="image/png">
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="icon" href='{% static "img/icone.png" %}' type="image/png">
 </head>
 <body>
     <header>
@@ -21,7 +21,7 @@
                 Nosso serviço de Planejamento e Organização Administrativa é focado em estruturar processos, otimizar a produtividade e promover a eficiência no ambiente corporativo. 
                 Com ferramentas modernas e uma abordagem personalizada, ajudamos sua empresa a alcançar melhores resultados.
             </p>
-            <img src="../imgs/planejamento_organizacao.jpg" alt="Planejamento administrativo em andamento" class="imagem-centralizada">
+            <img src='{% static "img/planejamento_organizacao.jpg" %}' alt="Planejamento administrativo em andamento" class="imagem-centralizada">
         </section>
 
         <section class="beneficios">
@@ -42,32 +42,32 @@
                 Nossa equipe realiza uma análise detalhada dos processos administrativos atuais da sua empresa. 
                 Em seguida, desenvolvemos um plano personalizado com estratégias de organização e planejamento, garantindo a implementação de soluções práticas e alinhadas às necessidades do negócio.
             </p>
-            <img src="../imgs/como-funciona-planejamento.jpg" alt="Equipe discutindo planejamento estratégico" class="imagem-centralizada">
+            <img src='{% static "img/como-funciona-planejamento.jpg" %}' alt="Equipe discutindo planejamento estratégico" class="imagem-centralizada">
         </section>
 
         <section class="cases">
             <h2>Casos de Sucesso</h2>
             <article class="case">
-                <h3>Empresa XYZ</h3>
+                <h3>Empresa Tarefas Express</h3>
                 <p>
-                    Após a implementação de nosso serviço, a Empresa XYZ reduziu o tempo de execução de tarefas administrativas em 30% 
+                    Após a implementação de nosso serviço, a Empresa Tarefas Express reduziu o tempo de execução de tarefas administrativas em 30% 
                     e melhorou a comunicação interna entre setores, resultando em maior produtividade.
                 </p>
             </article>
             <article class="case">
-                <h3>Startup ABC</h3>
+                <h3>Startup De Onde Tudo Começa & Cia</h3>
                 <p>
-                    Com um planejamento estratégico bem estruturado, a Startup ABC conseguiu expandir suas operações em menos de um ano, 
+                    Com um planejamento estratégico bem estruturado, a Startup De Onde Tudo Começa & Cia conseguiu expandir suas operações em menos de um ano, 
                     enquanto manteve a organização interna eficiente e escalável.
                 </p>
             </article>
         </section>
 
         <div class="button-container">
-            <a href="agendamento.html">Agendar Serviço</a>
+            <a href="/formularios">Agendar Serviço</a>
         </div>
         <div class="button-container">
-            <a href="../inicial.html" class="voltar">Voltar para a Página Inicial</a>
+            <a href="/#section1" class="voltar">Voltar para a Página Inicial</a>
         </div>
     </main>
     <!-- JavaScript -->

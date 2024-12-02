@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terceirização Financeira e Gestão de Recursos</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="../imgs/icone.png" type="image/png">
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="icon" href='{% static "img/icone.png" %}' type="image/png">
 </head>
 <body>
     <header>
@@ -21,7 +21,7 @@
                 A nossa terceirização financeira oferece soluções inovadoras para otimizar a gestão dos seus recursos. 
                 Cuidamos de todas as operações financeiras da sua empresa, permitindo que você se concentre no crescimento do negócio.
             </p>
-            <img src="../imgs/terceirizacao.jpg" alt="Análise financeira e gestão de recursos" class="imagem-centralizada">
+            <img src='{% static "img/terceirizacao.jpg" %}' alt="Análise financeira e gestão de recursos" class="imagem-centralizada">
         </section>
 
         <section class="beneficios">
@@ -42,23 +42,23 @@
                 Nossa equipe analisa os processos financeiros da sua empresa, implementa sistemas de controle eficazes e oferece relatórios regulares. 
                 Trabalhamos lado a lado com você para garantir que suas operações financeiras estejam alinhadas com os objetivos estratégicos do seu negócio.
             </p>
-            <img src="../imgs/ciclo-do-plano-financeiro.jpg" alt="Processo de planejamento financeiro" class="imagem-centralizada">
+            <img src='{% static "/img/ciclo-do-plano-financeiro.jpg" %}' alt="Processo de planejamento financeiro" class="imagem-centralizada">
         </section>
 
         <section class="depoimentos">
             <h2>O Que Nossos Clientes Dizem</h2>
             <blockquote class="depoimento">
-                "Delegar a gestão financeira para a equipe da KGB SA foi a melhor decisão que tomamos. 
+                "Delegar a gestão financeira para a equipe da KGB Solutions foi a melhor decisão que tomamos. 
                 Hoje temos controle total sobre nosso fluxo de caixa e um planejamento estratégico claro."
-                <cite>– Ana Costa, CFO da Empresa ABC</cite>
+                <cite>– Ana Costa, CFO da Empresa ABN Monitoramento De Caixas</cite>
             </blockquote>
         </section>
 
         <div class="button-container">
-            <a href="agendamento.html">Agendar Serviço</a>
+            <a href="/formularios">Agendar Serviço</a>
         </div>
         <div class="button-container">
-            <a href="../inicial.html" class="voltar">Voltar para a Página Inicial</a>
+            <a href="/#section1" class="voltar">Voltar para a Página Inicial</a>
         </div>
     </main>
     <!-- JavaScript -->

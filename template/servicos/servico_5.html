@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desenvolvimento de Sistemas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="../imgs/icone.png" type="image/png">
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="icon" href='{% static "img/icone.png" %}'  type="image/png">
 
 </head>
 <body>
@@ -22,7 +22,7 @@
                 Oferecemos serviços completos de desenvolvimento de sistemas personalizados, com foco em atender às necessidades específicas de cada cliente. 
                 Trabalhamos em estreita colaboração para criar soluções inovadoras que melhoram a eficiência e a competitividade do seu negócio.
             </p>
-            <img src="../imgs/desenvolvimento.jpg" alt="Desenvolvimento de Sistemas" class="imagem-centralizada">
+            <img src='{% static "img/desenvolvimento.jpg" %}' alt="Desenvolvimento de Sistemas" class="imagem-centralizada">
         </section>
 
         <section class="beneficios">
@@ -43,7 +43,7 @@
                 Nosso processo de desenvolvimento começa com uma análise detalhada das necessidades da sua empresa, seguida pela criação de um projeto personalizado. 
                 Utilizamos metodologias ágeis para garantir entregas rápidas e eficientes, com acompanhamento constante para ajustes conforme o progresso.
             </p>
-            <img src="../imgs/ciclo-desenvolvimento.jpg" alt="Processo de Desenvolvimento de Sistemas" class="imagem-centralizada">
+            <img src='{% static "img/ciclo-desenvolvimento.jpg" %}' alt="Processo de Desenvolvimento de Sistemas" class="imagem-centralizada">
         </section>
 
         <section class="depoimentos">
@@ -56,10 +56,10 @@
         </section>
 
         <div class="button-container">
-            <a href="agendamento.html">Agendar Consultoria</a>
+            <a href="/formularios">Agendar Consultoria</a>
         </div>
         <div class="button-container">
-            <a href="../inicial.html" class="voltar">Voltar para a Página Inicial</a>
+            <a href="/#section1" class="voltar">Voltar para a Página Inicial</a>
         </div>
     </main>
     <!-- JavaScript -->
