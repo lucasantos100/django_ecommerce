@@ -58,6 +58,7 @@ urlpatterns = [
 	path('admin/', admin.site.urls),
     path('formularios/', views.mostrar_formulario, name='mostrar_formulario'),
     path('sucesso/', views.formulario_sucesso, name='formulario_sucesso'),
+    path('esqueceu-senha/', views.forgot_password, name='forgot_password'),
     
 ]
 if settings.DEBUG:

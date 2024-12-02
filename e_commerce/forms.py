@@ -102,7 +102,7 @@ class RegisterForm(forms.Form):
         password = self.cleaned_data.get('password')
         password2 = self.cleaned_data.get('password2')
         if password != password2:
-            raise forms.ValidationError("As senhas informadas devem ser iguais!")
+            self.add_error('password2', "As senhas informadas devem ser iguais!")
         return data
 
 #formulario de formulario
@@ -186,3 +186,6 @@ class FormularioForm(forms.ModelForm):
             }
         )
     )
+
+class ForgotPasswordForm(forms.Form):
+    email = forms.EmailField(label='Email', max_length=100)  

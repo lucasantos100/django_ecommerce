@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .forms import ContactForm, LoginForm, RegisterForm, FormularioForm
+from .forms import ContactForm, LoginForm, RegisterForm, FormularioForm, ForgotPasswordForm
 
 from formulario.models import Formulario
 
@@ -87,9 +87,6 @@ User = get_user_model()
 
 def register_page(request):
     form = RegisterForm(request.POST or None)
-    context = {
-                    "form": form
-              }
     if form.is_valid():
         print(form.cleaned_data)
         username = form.cleaned_data.get("username")
@@ -97,6 +94,11 @@ def register_page(request):
         password = form.cleaned_data.get("password")
         new_user = User.objects.create_user(username, email, password)
         print(new_user)
+        return redirect('/login')
+    
+    context = {
+                    "form": form
+              }
     return render(request, "auth/register.html", context)
 
 def lista_formularios(request):
@@ -153,3 +155,19 @@ def servico_4(request):
 
 def servico_5(request):
     return render(request, "servicos/servico_5.html")
+
+def forgot_password(request):
+    if request.method == 'POST':
+        form = ForgotPasswordForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            try:
+                user = User.objects.get(email=email)
+                password = user.password  # Aviso: a senha é armazenada criptografada no banco de dados
+                return JsonResponse({'status': 'success', 'message': f'Sua senha é: {password}'})
+            except User.DoesNotExist:
+                return JsonResponse({'status': 'error', 'message': 'E-mail não encontrado.'})
+    else:
+        form = ForgotPasswordForm()
+
+    return render(request, 'forgot_password.html', {'form': form})

@@ -1,0 +1,116 @@
+/* Geral */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa; /* Fundo neutro */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column; /* Alinha os elementos em coluna */
+    text-align: center;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Espaço entre a imagem e o formulário */
+}
+
+/* Form container */
+.form-container {
+    padding: 40px;
+}
+
+/* Título */
+h2 {
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+/* Estilos dos campos de entrada */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-group input {
+    width: 92%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.input-group input::placeholder {
+    color: #bbb;
+}
+
+/* Estilo do botão de submit */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Estilos para mensagens de erro */
+.form-error {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Estilo para o cabeçalho com a imagem */
+header {
+    margin-bottom: 0px; /* Espaço entre o cabeçalho e o formulário */
+}
+
+.chapeu {
+    width: 200px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto;
+    margin: 0 auto;
+}
+
+.login-link {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.login-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

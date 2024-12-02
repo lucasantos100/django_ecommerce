@@ -1,5 +1,89 @@
-<form method='POST'> 
-    {% csrf_token %}
-    {{ form }}
-    <button type='submit' class='btn btn-default'>Enviar</button>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+
+    <!-- Cabeçalho com a imagem -->
+    <header>
+        <div class="chapeu">
+            <img src="{% static 'img/icone.png' %}" class="chapeu" alt="icone da pagina" />
+        </div>
+    </header>
+
+    <!-- Formulário de Cadastro -->
+    <main>
+        <div class="main-container">
+            <div class="form-container">
+                <h2>Cadastre-se</h2>
+                <form method="POST" class="register-form">
+                    {% csrf_token %}
+
+                    <!-- Campo de Nome de Usuário -->
+                    <div class="input-group">
+                        <label for="id_username">Nome de Usuário</label>
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            <div class="form-error">
+                                {% for error in form.username.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Campo de E-mail -->
+                    <div class="input-group">
+                        <label for="id_email">E-mail</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="form-error">
+                                {% for error in form.email.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Campo de Senha -->
+                    <div class="input-group">
+                        <label for="id_password">Senha</label>
+                        {{ form.password }}
+                        {% if form.password.errors %}
+                            <div class="form-error">
+                                {% for error in form.password.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Campo de Confirmar Senha -->
+                    <div class="input-group">
+                        <label for="id_password2">Confirmar Senha</label>
+                        {{ form.password2 }}
+                        {% if form.password2.errors %}
+                            <div class="form-error">
+                                {% for error in form.password2.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <!-- Botão de Submit -->
+                    <button type="submit" class="submit-btn">Cadastrar</button>
+                </form>
+                <div class="login-link">
+                    <p>Já possui uma conta? <a href="/login">Faça login aqui</a></p>
+               </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
