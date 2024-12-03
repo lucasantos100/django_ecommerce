@@ -36,7 +36,7 @@ def contact_page(request):
             # Salva o formulário no banco de dados
             contact_form.save()
             # Se o formulário for válido, redireciona para uma página de sucesso ou exibe uma mensagem
-            return redirect('formulario_sucesso')  # Você pode substituir 'success' com o nome da URL que deseja redirecionar após o sucesso
+            return redirect('formulario_sucesso_contact')  # Você pode substituir 'success' com o nome da URL que deseja redirecionar após o sucesso
     else:
         contact_form = ContactForm()
 
@@ -117,7 +117,10 @@ def mostrar_formulario(request):
 
 # View de sucesso (após o formulário ser enviado com sucesso)
 def formulario_sucesso(request):
-    return HttpResponse('Formulário enviado com sucesso!')
+    return render(request, 'formularios/sucesso.html')
+
+def formulario_sucesso_contato(request):
+    return render(request, 'contact/sucesso.html')
 
 #formulario de mudar senha herdado do proprio django
 @login_required

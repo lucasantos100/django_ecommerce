@@ -58,6 +58,7 @@ urlpatterns = [
 	path('admin/', admin.site.urls),
     path('formularios/', views.mostrar_formulario, name='mostrar_formulario'),
     path('sucesso/', views.formulario_sucesso, name='formulario_sucesso'),
+    path('sucesso_contato/', views.formulario_sucesso_contato, name='formulario_sucesso_contact'),
     path('esqueceu-senha/', views.forgot_password, name='forgot_password'),
     
 ]
