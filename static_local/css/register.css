@@ -1,10 +1,9 @@
 /* Geral */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f7fa; /* Fundo neutro */
+    background-color: #dddded; /* Fundo neutro */
     color: #333;
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -15,9 +14,9 @@ body {
 .main-container {
     width: 100%;
     max-width: 600px;
-    background-color: #fff;
+    background-color: #eededeb3;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.603);
     margin-top: 20px; /* Espaço entre a imagem e o formulário */
 }
 
@@ -91,7 +90,7 @@ h2 {
 
 /* Estilo para o cabeçalho com a imagem */
 header {
-    margin-bottom: 0px; /* Espaço entre o cabeçalho e o formulário */
+    margin-bottom:0px; /* Espaço entre o cabeçalho e o formulário */
 }
 
 .chapeu {

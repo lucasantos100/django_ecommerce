@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuário</title>
+    <link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="https://via.placeholder.com/100" alt="Foto de Perfil" class="profile-img" id="profileImage">
+                <h2 id="nameDisplay">{{ user.username }}</h2>  <!-- Exibe o nome de usuário -->
+                <input type="file" id="imageInput" style="display:none;" accept="image/*">
+                <button onclick="document.getElementById('imageInput').click();" class="change-photo-btn" id="changeImageButton">Alterar Foto</button>
+            </div>
+            <nav class="menu">
+                <a href="/">Inicio</a> 
+                <a href="/logout">Sair da conta</a>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo principal -->
+        <main class="main-content">
+            <section class="about">
+                <h2>Informações</h2>
+                <div class="details">
+                    <!-- Exibe o nome de usuário e o e-mail do usuário logado -->
+                    <p><strong>Nome de Usuário:</strong> <input type="text" id="nameInput" value="{{ user.username }}" readonly></p> 
+                    <p><strong>Email:</strong> <input type="text" id="emailInput" value="{{ user.email }}" readonly></p>
+                </div> 
+                <div class="line"></div>
+            </section>
+
+            <section class="projects">
+                <h2>Descrição</h2>
+                <textarea id="bio" cols="30" rows="10"></textarea>
+                <div class="line"></div>
+            </section>
+
+            <button id="editButton">Editar</button>
+            <button id="saveButton" style="display:none;">Salvar</button>
+        </main>
+    </div>
+    <script src="{% static 'js/perfil.js' %}"></script>
+</body>
+</html>

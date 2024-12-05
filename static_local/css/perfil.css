@@ -1,0 +1,197 @@
+/* Configurações gerais */
+* {
+    margin: 10px 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* Adicionado padding para dar mais espaço ao redor */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#nameDisplay {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.change-photo-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.change-photo-btn:hover {
+    background-color: #c0392b;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.menu a:hover {
+    background-color: #34495e;
+    border-radius: 5px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header nav a {
+    font-size: 1rem;
+    color: #2c3e50;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.header nav a:hover {
+    text-decoration: underline;
+}
+
+.about, .projects {
+    margin-bottom: 30px;
+}
+
+.details {
+    margin-bottom: 40px; /* Aumentando o espaçamento entre os campos */
+}
+
+.details input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px; /* Aumentando o espaçamento superior */
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    resize: vertical;
+    margin-top: 10px; /* Adicionando espaço extra em cima do campo de texto */
+}
+
+.line {
+    margin: 30px 20px; /* Aumentando o espaço entre as seções */
+    border-bottom: 1px solid #ddd;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Adicionando margem superior nos botões */
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#saveButton {
+    background-color: #2ecc71;
+}
+
+#saveButton:hover {
+    background-color: #27ae60;
+}
+
+#editButton {
+    background-color: #f39c12;
+}
+
+#editButton:hover {
+    background-color: #e67e22;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+}

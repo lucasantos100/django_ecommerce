@@ -12,7 +12,7 @@ body {
      height: 100vh;
      font-size: 1rem;
      color: #fff;
-     background-color: #110d20;
+     background-color: #dddded;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -31,7 +31,7 @@ main {
 .main-container {
      width: 100%;
      max-width: 600px;
-     background-color: #24244a;
+     background-color: #eededeb3;
      padding: 2rem;
      border-radius: 15px;
      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
@@ -43,7 +43,7 @@ main {
 
 h1 {
      text-align: center;
-     color: #52d27b;
+     color: #3498db;
      font-size: 2rem;
      margin-bottom: 1.5rem;
 }
@@ -59,7 +59,7 @@ h1 {
 
 /* CARD AREA */
 .card {
-     background-color: #292948;
+     background-color: #eededeb3;
      border-radius: 15px;
      padding: 2rem;
      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -70,7 +70,7 @@ h1 {
 }
 
 .card h2 {
-     color: #52d27b;
+     color: #3498db;
      text-align: center;
      font-size: 2rem;
      font-weight: 600;
@@ -95,9 +95,9 @@ form {
      padding: 0.7rem;
      margin-bottom: 1rem;
      font-size: 1rem;
-     color: #c9c9c9;
-     background-color: #1e1d38;
-     border: 1px solid #44444f;
+     color: #333;
+     background-color: #fafafa;
+     border: 1px solid #ccc;
      border-radius: 5px;
      outline: none;
      width: 100%;
@@ -120,7 +120,7 @@ form {
      max-width: 350px;
      font-size: 1.2rem;
      color: #fff;
-     background-color: #4caf50;
+     background-color: #3498db;
      font-weight: 600;
      padding: 0.8rem 2rem;
      border-radius: 5px;
@@ -130,7 +130,7 @@ form {
 }
 
 .submit-btn-form button:hover {
-     background-color: #45a249;
+     background-color: #2980b9;
 }
 
 form button:disabled {

@@ -8,7 +8,7 @@
 
 /* Estilo geral */
 body {
-    background-color: #f4f4f9; /* Cor de fundo clara */
+    background: linear-gradient(to top, #9c92919a, #fff9f9);
     color: #333; /* Texto principal */
     line-height: 1.6;
 }

@@ -44,6 +44,7 @@ urlpatterns = [
     path('mudarsenha/', views.mudar_senha, name='mudar_senha'),
     path('clear-logout-message/', clear_logout_message, name='clear_logout_message'),
     path('register/', register_page),
+    path('perfil/', views.user_profile, name='perfil'),
     #path('featured/', ProductFeaturedListView.as_view()),# chega a dar raiva de tao inutil
     #path('featured/<int:pk>/', ProductFeaturedDetailView.as_view()),# chega a dar raiva de tao inutil
     #path('products/', ProductListView.as_view()),

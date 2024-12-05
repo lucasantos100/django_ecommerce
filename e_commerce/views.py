@@ -76,7 +76,7 @@ def login_page(request):
 def logout_page(request):
     logout(request)
     request.session['logout_message'] = "Você foi deslogado com sucesso!"
-    return redirect("/")
+    return redirect("/login")
 
 def clear_logout_message(request):
     request.session.pop('logout_message', None)
@@ -141,6 +141,11 @@ def mudar_senha(request):
         form = PasswordChangeForm(user=request.user)
 
     return render(request, 'auth/mudarsenha.html', {'form': form})
+
+@login_required
+def user_profile(request):
+    user = request.user  # Obtém o usuário logado
+    return render(request, 'auth/perfil.html', {'user': user})
 
 #pagina de servicos (totalmente html funcional, gerados por lucas KAUAN DOS ANJOS)
 
